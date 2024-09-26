@@ -1,5 +1,4 @@
 #include "maze.h"
-#include "rescaleimg.h"
 #include <QTime>
 #include <QtGlobal>    //qsrand和qrand这两个函数在这里面>
 #include <QStack>
@@ -9,6 +8,9 @@ Maze::Maze() {}
 
 Maze::Maze(int x){
     this->mazeLevel=x;
+}
+
+Maze::~Maze() {
 }
 
 void Maze::base() {
@@ -51,7 +53,7 @@ void Maze::createMaze(){
     bool up=false, down=false, left=false, right=false;
     QStack<int> MazeStack_x;
     QStack<int> MazeStack_y;
-    this->map[1][0]=1;
+    this->map[1][0]=2;
     this->map[mazeLevel-2][mazeLevel-1]=1;
     while(true){
         int ranNum=rand()%4;
@@ -131,8 +133,10 @@ void Maze::createMaze(){
 QImage Maze::mazeMap(){
     QImage mazeWall(10,10,QImage::Format_RGB888);
     QImage mazeRoad(10,10,QImage::Format_RGB888);
+    QImage mazeMy(10,10,QImage::Format_RGB888);
     mazeWall.fill(QColor(Qt::black));
     mazeRoad.fill(QColor(Qt::white));
+    mazeMy.fill(QColor(Qt::green));
 
     // 创建一个新的QImage对象，大小为迷宫的宽度和高度
     QImage mazeImage(mazeLevel * 10, mazeLevel * 10, QImage::Format_ARGB32);
@@ -141,15 +145,22 @@ QImage Maze::mazeMap(){
     // 遍历迷宫数组
     for (int row = 0; row < mazeLevel; row++) {
         for (int col = 0; col < mazeLevel; col++) {
-            // 如果当前单元格是1，绘制墙图片
+            // 1-绘制路图片
             if (map[row][col] == 1) {
                 painter.drawImage(col * 10, row * 10, mazeRoad);
-            } else { // 否则绘制路图片
+            }
+            // 0-绘制墙图片
+            else if(map[row][col] == 0) {
                 painter.drawImage(col * 10, row * 10, mazeWall);
+            }
+            // 2-绘制角色图片
+            else{
+                painter.drawImage(col * 10, row * 10, mazeMy);
             }
         }
     }
-
     return mazeImage; // 返回生成的迷宫图像
 }
+
+
 

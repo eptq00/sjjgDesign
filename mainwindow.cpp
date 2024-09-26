@@ -1,6 +1,7 @@
 #include "mainwindow.h"
 #include "./ui_mainwindow.h"
 #include "maze.h"
+#include "nestmaze.h"
 #include <QTime>
 #include <QtGlobal>
 
@@ -9,6 +10,7 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+    connect(ui->mazeGraphicsView, SIGNAL(&mazeKeyEvent::sendToMaze), this, SLOT(&MainWindow::keyboardEvent));
 }
 
 MainWindow::~MainWindow()
@@ -118,14 +120,46 @@ void MainWindow::on_mazeSizeBack_clicked()
     ui->mazeSizeLine->setText(expression);
 }
 
-void MainWindow::showMaze(){
-    Maze* maze = new Maze();
+void MainWindow::keyboardEvent(QKeyEvent *event){
+    QGraphicsScene *scene = new QGraphicsScene;
+    QImage orimage;
+    QImage scaledImage;
+
+    orimage = maze->mazeMap();
+    if(ui->mazeGraphicsView->width() > ui->mazeGraphicsView->height())
+        scaledImage = orimage.scaled(ui->mazeGraphicsView->height(), ui->mazeGraphicsView->height());
+    else
+        scaledImage = orimage.scaled(ui->mazeGraphicsView->width(), ui->mazeGraphicsView->width());
+    scene->addPixmap(QPixmap::fromImage(scaledImage));
+
+    ui->mazeGraphicsView->setScene(scene);
+    ui->mazeGraphicsView->show();
+}
+
+void MainWindow::initMaze(){
+    maze = new Maze();
     maze->setMazeLevel(this->mazeSize);
     maze->createMaze();
-    QImage mazeWall(10,10,QImage::Format_RGB888);
-    mazeWall.fill(QColor(Qt::black));
+    QImage orimage = maze->mazeMap();
+    showMaze();
+}
+
+void MainWindow::initNestMaze(){
+    nestmaze = new nestMaze();
+    //showMaze();
+}
+
+void MainWindow::showMaze(){
     QGraphicsScene *scene = new QGraphicsScene;
-    scene->addPixmap(QPixmap::fromImage(maze->mazeMap()));
+    QImage orimage;
+    QImage scaledImage;
+
+    orimage = maze->mazeMap();
+    if(ui->mazeGraphicsView->width() > ui->mazeGraphicsView->height())
+        scaledImage = orimage.scaled(ui->mazeGraphicsView->height(), ui->mazeGraphicsView->height());
+    else
+        scaledImage = orimage.scaled(ui->mazeGraphicsView->width(), ui->mazeGraphicsView->width());
+    scene->addPixmap(QPixmap::fromImage(scaledImage));
 
     ui->mazeGraphicsView->setScene(scene);
     ui->mazeGraphicsView->show();
@@ -134,7 +168,58 @@ void MainWindow::showMaze(){
 void MainWindow::on_pushButton_clicked()
 {
     if(mazeSize!=-1){
-        this->showMaze();
+        this->initMaze();
     }
 }
 
+void MainWindow::keyPressEvent(QKeyEvent *event){
+    switch (event->key()) {
+    case Qt::Key_W:
+        if(maze->map[maze->my_x-1][maze->my_y] == 1){
+            maze->map[maze->my_x][maze->my_y]=1;
+            maze->map[maze->my_x-1][maze->my_y]=2;
+            maze->my_x=maze->my_x-1;
+            //moved=true;
+        }
+        // 在这里添加向上移动的逻辑
+        break;
+    case Qt::Key_A:
+        if(maze->map[maze->my_x][maze->my_y-1] == 1){
+            maze->map[maze->my_x][maze->my_y]=1;
+            maze->map[maze->my_x][maze->my_y-1]=2;
+            maze->my_y=maze->my_y-1;
+            //moved=true;
+        }
+        // 在这里添加向左移动的逻辑
+        break;
+    case Qt::Key_S:
+        if(maze->map[maze->my_x+1][maze->my_y] == 1){
+            maze->map[maze->my_x][maze->my_y]=1;
+            maze->map[maze->my_x+1][maze->my_y]=2;
+            maze->my_x=maze->my_x+1;
+            //moved=true;
+        }
+        // 在这里添加向下移动的逻辑
+        break;
+    case Qt::Key_D:
+        if(maze->map[maze->my_x][maze->my_y+1] == 1){
+            maze->map[maze->my_x][maze->my_y]=1;
+            maze->map[maze->my_x][maze->my_y+1]=2;
+            maze->my_y=maze->my_y+1;
+            //moved=true;
+        }
+        // 在这里添加向右移动的逻辑
+         break;
+    default:
+        //QGraphicsView::keyPressEvent(event); // 其他按键传递给基类处理
+        break;
+    }
+    showMaze();
+
+    if(maze->map[maze->mazeLevel-2][maze->mazeLevel-1]==2){
+        //通关逻辑
+        ui->mazeSizeLine->setText("你赢了");
+        initNestMaze();
+    }
+
+}

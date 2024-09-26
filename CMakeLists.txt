@@ -25,6 +25,9 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
         ${PROJECT_SOURCES}
         maze.h maze.cpp
         rescaleimg.h rescaleimg.cpp
+        nestmaze.h nestmaze.cpp
+
+
 
 
 

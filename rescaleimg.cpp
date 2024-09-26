@@ -8,11 +8,11 @@ void rescaleImg::wheelEvent(QWheelEvent *event){
     double scalenum = (double)wheelValue/(double)1200+1;
     QPoint p(-100,100);
     QPoint q(100,-100);
-    //if((mapFromScene(p).rx()-mapFromScene(q).rx())>(p.rx()-q.rx()+60)){
-        //if(scalenum>1)
-        //    scale(scalenum,scalenum);
-    //}
-    //else
+    if((mapFromScene(p).rx()-mapFromScene(q).rx())>(p.rx()-q.rx()+60)){
+        if(scalenum>1)
+            scale(scalenum,scalenum);
+    }
+    else
         scale(scalenum,scalenum);
     emit sendToMap(event);
 }

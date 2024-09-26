@@ -89,6 +89,14 @@ build CMakeFiles/sjjgDesign.dir/rescaleimg.cpp.obj: CXX_COMPILER__sjjgDesign_uns
   OBJECT_DIR = CMakeFiles\sjjgDesign.dir
   OBJECT_FILE_DIR = CMakeFiles\sjjgDesign.dir
 
+build CMakeFiles/sjjgDesign.dir/nestmaze.cpp.obj: CXX_COMPILER__sjjgDesign_unscanned_Debug C$:/Users/86135/Desktop/UselessProject/SjjgDesign/sjjgDesign/nestmaze.cpp || cmake_object_order_depends_target_sjjgDesign
+  DEFINES = -DMINGW_HAS_SECURE_API=1 -DQT_CORE_LIB -DQT_GUI_LIB -DQT_NEEDS_QMAIN -DQT_WIDGETS_LIB -DUNICODE -DWIN32 -DWIN64 -D_ENABLE_EXTENDED_ALIGNED_STORAGE -D_UNICODE -D_WIN64
+  DEP_FILE = CMakeFiles\sjjgDesign.dir\nestmaze.cpp.obj.d
+  FLAGS = -DQT_QML_DEBUG -g -std=gnu++17 -fdiagnostics-color=always
+  INCLUDES = -IC:/Users/86135/Desktop/UselessProject/SjjgDesign/sjjgDesign/build/Desktop_Qt_6_5_3_MinGW_64_bit-Debug/sjjgDesign_autogen/include -isystem D:/QT67/6.5.3/mingw_64/include/QtCore -isystem D:/QT67/6.5.3/mingw_64/include -isystem D:/QT67/6.5.3/mingw_64/mkspecs/win32-g++ -isystem D:/QT67/6.5.3/mingw_64/include/QtWidgets -isystem D:/QT67/6.5.3/mingw_64/include/QtGui
+  OBJECT_DIR = CMakeFiles\sjjgDesign.dir
+  OBJECT_FILE_DIR = CMakeFiles\sjjgDesign.dir
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target sjjgDesign
@@ -97,7 +105,7 @@ build CMakeFiles/sjjgDesign.dir/rescaleimg.cpp.obj: CXX_COMPILER__sjjgDesign_uns
 #############################################
 # Link the executable sjjgDesign.exe
 
-build sjjgDesign.exe: CXX_EXECUTABLE_LINKER__sjjgDesign_Debug CMakeFiles/sjjgDesign.dir/sjjgDesign_autogen/mocs_compilation.cpp.obj CMakeFiles/sjjgDesign.dir/main.cpp.obj CMakeFiles/sjjgDesign.dir/mainwindow.cpp.obj CMakeFiles/sjjgDesign.dir/maze.cpp.obj CMakeFiles/sjjgDesign.dir/rescaleimg.cpp.obj | D$:/QT67/6.5.3/mingw_64/lib/libQt6Widgets.a D$:/QT67/6.5.3/mingw_64/lib/libQt6Gui.a D$:/QT67/6.5.3/mingw_64/lib/libQt6Core.a D$:/QT67/6.5.3/mingw_64/lib/libQt6EntryPoint.a || sjjgDesign_autogen sjjgDesign_autogen_timestamp_deps
+build sjjgDesign.exe: CXX_EXECUTABLE_LINKER__sjjgDesign_Debug CMakeFiles/sjjgDesign.dir/sjjgDesign_autogen/mocs_compilation.cpp.obj CMakeFiles/sjjgDesign.dir/main.cpp.obj CMakeFiles/sjjgDesign.dir/mainwindow.cpp.obj CMakeFiles/sjjgDesign.dir/maze.cpp.obj CMakeFiles/sjjgDesign.dir/rescaleimg.cpp.obj CMakeFiles/sjjgDesign.dir/nestmaze.cpp.obj | D$:/QT67/6.5.3/mingw_64/lib/libQt6Widgets.a D$:/QT67/6.5.3/mingw_64/lib/libQt6Gui.a D$:/QT67/6.5.3/mingw_64/lib/libQt6Core.a D$:/QT67/6.5.3/mingw_64/lib/libQt6EntryPoint.a || sjjgDesign_autogen sjjgDesign_autogen_timestamp_deps
   FLAGS = -DQT_QML_DEBUG -g
   LINK_FLAGS = -mwindows
   LINK_LIBRARIES = D:/QT67/6.5.3/mingw_64/lib/libQt6Widgets.a  D:/QT67/6.5.3/mingw_64/lib/libQt6Gui.a  D:/QT67/6.5.3/mingw_64/lib/libQt6Core.a  -lmpr  -luserenv  -lmingw32  D:/QT67/6.5.3/mingw_64/lib/libQt6EntryPoint.a  -lshell32  -ld3d11  -ldxgi  -ldxguid  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32

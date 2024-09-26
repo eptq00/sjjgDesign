@@ -2,6 +2,8 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include "maze.h"
+#include "nestmaze.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -16,6 +18,7 @@ class MainWindow : public QMainWindow
 public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
+    void keyPressEvent(QKeyEvent *event);
 
 private slots:
     void on_mazeSize1_clicked();
@@ -44,10 +47,17 @@ private slots:
 
     void on_pushButton_clicked();
 
+    void keyboardEvent(QKeyEvent *event);
+
 private:
     Ui::MainWindow *ui;
     QString expression;
+
+    Maze* maze;
+    nestMaze* nestmaze;
     int mazeSize = -1;
     void showMaze();
+    void initMaze();
+    void initNestMaze();
 };
 #endif // MAINWINDOW_H

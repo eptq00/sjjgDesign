@@ -265,6 +265,12 @@
 			null
 		],
 		[
+			"C:/Users/86135/Desktop/UselessProject/SjjgDesign/sjjgDesign/nestmaze.h",
+			"MU",
+			"EWIEGA46WW/moc_nestmaze.cpp",
+			null
+		],
+		[
 			"C:/Users/86135/Desktop/UselessProject/SjjgDesign/sjjgDesign/rescaleimg.h",
 			"MU",
 			"EWIEGA46WW/moc_rescaleimg.cpp",
@@ -353,6 +359,11 @@
 		],
 		[
 			"C:/Users/86135/Desktop/UselessProject/SjjgDesign/sjjgDesign/maze.cpp",
+			"MU",
+			null
+		],
+		[
+			"C:/Users/86135/Desktop/UselessProject/SjjgDesign/sjjgDesign/nestmaze.cpp",
 			"MU",
 			null
 		],
