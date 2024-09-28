@@ -13,6 +13,7 @@ Maze::Maze(int x){
 Maze::~Maze() {
 }
 
+// 初始化地图，所有设成墙
 void Maze::base() {
     map = new int*[mazeLevel];
     for (int i = 0; i < mazeLevel; i++) {
@@ -21,18 +22,12 @@ void Maze::base() {
 
     for (int i = 0; i < mazeLevel; i++) {
         for (int j = 0; j < mazeLevel; j++) {
-            //边界设为-1
-            if (i == 0 || j == 0 || i == mazeLevel - 1 || j == mazeLevel - 1) {
-                this->map[i][j] = 0;
-            }
-            //内部设为0，待通点
-            else {
-                this->map[i][j] = 0;
-            }
+            this->map[i][j] = 0;
         }
     }
 }
 
+// 重新设置方向
 void Maze::resetDir(bool* up, bool* down, bool* left, bool* right){
     *up=false;
     *down=false;
@@ -40,12 +35,14 @@ void Maze::resetDir(bool* up, bool* down, bool* left, bool* right){
     *right=false;
 }
 
+// 设置迷宫阶数
 void Maze::setMazeLevel(int x){
     this->mazeLevel=x;
 }
 
+// 创建二维迷宫
 void Maze::createMaze(){
-    this->base();
+    Maze::base();
     this->start_x = 1;
     this->start_y = 1;
     this->map[this->start_x][this->start_y]=1;
@@ -130,6 +127,7 @@ void Maze::createMaze(){
     }
 }
 
+// 生成迷宫地图
 QImage Maze::mazeMap(){
     QImage mazeWall(10,10,QImage::Format_RGB888);
     QImage mazeRoad(10,10,QImage::Format_RGB888);

@@ -47,8 +47,6 @@ private slots:
 
     void on_pushButton_clicked();
 
-    void keyboardEvent(QKeyEvent *event);
-
 private:
     Ui::MainWindow *ui;
     QString expression;
@@ -56,8 +54,11 @@ private:
     Maze* maze;
     nestMaze* nestmaze;
     int mazeSize = -1;
-    void showMaze();
+    int mode = 1;
+    void showMaze(Maze *maze);
+    void showNestMaze();
     void initMaze();
     void initNestMaze();
+    void nextLevel();
 };
 #endif // MAINWINDOW_H

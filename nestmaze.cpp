@@ -1,26 +1,145 @@
 #include "nestmaze.h"
 #include <QPainter>
+#include <QStack>
 
 nestMaze::nestMaze() : Maze() {}
 
 QImage nestMaze::nestCell(){
-    QImage nestImg1(10,10,QImage::Format_RGB888);
-    QImage nestImg2(10,10,QImage::Format_RGB888);
-    nestImg1.fill(QColor(Qt::red));
-    nestImg2.fill(QColor(Qt::white));
+    //QImage nestImg3 = Maze::mazeMap();
+    this->createNestMaze();
+    QImage mazeWall(10,10,QImage::Format_RGB888);
+    QImage mazeRoad(10,10,QImage::Format_RGB888);
+    QImage mazeMy(10,10,QImage::Format_RGB888);
+    mazeWall.fill(QColor(Qt::red));
+    mazeRoad.fill(QColor(Qt::white));
+    mazeMy.fill(QColor(Qt::green));
 
-    QImage nestImg3(11*10, 11*10, QImage::Format_ARGB32);
-    QPainter painter(&nestImg3); // 创建QPainter对象，用于绘制图像
-    for (int i=0;i<11;i++){
-        for (int j=0;j<11;j++){
-            if(j==4||j==5||j==6)
-                painter.drawImage(j*10,i*10,nestImg2);
-            else
-                painter.drawImage(j*10,i*10,nestImg1);
+    // 创建一个新的QImage对象，大小为迷宫的宽度和高度
+    QImage mazeImage(mazeLevel * 10, mazeLevel * 10, QImage::Format_ARGB32);
+    QPainter painter(&mazeImage); // 创建QPainter对象，用于绘制图像
+
+    // 遍历迷宫数组
+    for (int row = 0; row < mazeLevel; row++) {
+        for (int col = 0; col < mazeLevel; col++) {
+            // 1-绘制路图片
+            if (nestMap[row][col] == 1) {
+                painter.drawImage(col * 10, row * 10, mazeRoad);
+            }
+            // 0-绘制墙图片
+            else if(nestMap[row][col] == 0) {
+                painter.drawImage(col * 10, row * 10, mazeWall);
+            }
+            else{
+                if(inNest){
+                    painter.drawImage (col * 10, row * 10, mazeMy);
+                }
+                else{
+                    painter.drawImage(col * 10, row * 10, mazeRoad);
+                }
+            }
         }
     }
-    nestImg3.scaled(10,10);
-    return nestImg3;
+    QImage nestImg = mazeImage.scaled(10,10);
+    return nestImg;
+}
+
+void nestMaze::base() {
+    nestMap = new int*[mazeLevel];
+    for (int i = 0; i < mazeLevel; i++) {
+        nestMap[i] = new int[mazeLevel];
+    }
+
+    for (int i = 0; i < mazeLevel; i++) {
+        for (int j = 0; j < mazeLevel; j++) {
+            nestMap[i][j] = 0;
+        }
+    }
+}
+
+void nestMaze::createNestMaze(){
+    nestMaze::base();
+    this->start_x = mazeLevel/2+1;
+    this->start_y = 1;
+    this->nestMap[this->start_x][this->start_y]=1;
+    int currpoint_x = start_x, currpoint_y = start_y;
+    bool up=false, down=false, left=false, right=false;
+    QStack<int> MazeStack_x;
+    QStack<int> MazeStack_y;
+    this->nestMap[mazeLevel / 2][0]=2;
+    this->nestMap[mazeLevel / 2][mazeLevel-1]=1;
+    while(true){
+        int ranNum=rand()%4;
+        switch(ranNum){
+        case 0://上
+            if(!up && currpoint_x>2 && this->nestMap[currpoint_x-2][currpoint_y] == 0){
+                MazeStack_x.push(currpoint_x);
+                MazeStack_y.push(currpoint_y);
+                this->nestMap[currpoint_x-2][currpoint_y] = 1;
+                this->nestMap[currpoint_x-1][currpoint_y] = 1;
+                currpoint_x = currpoint_x - 2;
+                this->resetDir(&up,&down,&left,&right);
+            }
+            else{
+                up=true;
+            }
+            break;
+        case 1://下
+            if(!down && currpoint_x<mazeLevel-3 && this->nestMap[currpoint_x+2][currpoint_y] == 0){
+                MazeStack_x.push(currpoint_x);
+                MazeStack_y.push(currpoint_y);
+                this->nestMap[currpoint_x+2][currpoint_y] = 1;
+                this->nestMap[currpoint_x+1][currpoint_y] = 1;
+                currpoint_x = currpoint_x + 2;
+                this->resetDir(&up,&down,&left,&right);
+            }
+            else{
+                down=true;
+            }
+            break;
+        case 2://左
+            if(!left && currpoint_y>2 && this->nestMap[currpoint_x][currpoint_y-2] == 0){
+                MazeStack_x.push(currpoint_x);
+                MazeStack_y.push(currpoint_y);
+                this->nestMap[currpoint_x][currpoint_y-2] = 1;
+                this->nestMap[currpoint_x][currpoint_y-1] = 1;
+                currpoint_y = currpoint_y - 2;
+                this->resetDir(&up,&down,&left,&right);
+            }
+            else{
+                left=true;
+            }
+            break;
+        case 3://右
+            if(!right && currpoint_y<mazeLevel-3 && this->nestMap[currpoint_x][currpoint_y+2] == 0){
+                MazeStack_x.push(currpoint_x);
+                MazeStack_y.push(currpoint_y);
+                this->nestMap[currpoint_x][currpoint_y+2] = 1;
+                this->nestMap[currpoint_x][currpoint_y+1] = 1;
+                currpoint_y = currpoint_y + 2;
+                this->resetDir(&up,&down,&left,&right);
+            }
+            else{
+                right=true;
+            }
+            break;
+        default: break;
+        }
+        if(up&&down&&right&&left)//如果当前访问节点四个方向都没有可拆的节点，回溯
+        {
+            if(!MazeStack_x.empty() && !MazeStack_y.empty())
+            {
+                currpoint_x = MazeStack_x.top();
+                currpoint_y = MazeStack_y.top();
+                MazeStack_x.pop();
+                MazeStack_y.pop();
+                this->resetDir(&up,&down,&left,&right);
+            }
+            else//如果栈为空的话就返回，此时迷宫矩阵已经创建完毕
+            {
+                return;
+            }
+        }
+    }
 }
 
 QImage nestMaze::mazeMap(){
@@ -32,12 +151,17 @@ QImage nestMaze::mazeMap(){
     mazeRoad.fill(QColor(Qt::white));
     mazeMy.fill(QColor(Qt::green));
 
+    int nest_x=0;
+    int nest_y=0;
     while(true){
-        int nest_x=rand()%mazeLevel;
-        int nest_y=rand()%mazeLevel;
-        if(map[nest_x-1][nest_y]==1&&map[nest_x+1][nest_y]==1)
-            map[nest_x][nest_y]=3;//3 嵌套
-        break;
+        nest_x=rand()%mazeLevel;
+        nest_y=rand()%mazeLevel;
+        if(map[nest_x][nest_y] == 1){
+            if(map[nest_x][nest_y-1]==1 && map[nest_x][nest_y+1]==1){
+                map[nest_x][nest_y]=3;//3 嵌套
+                break;
+            }
+        }
     }
     // 创建一个新的QImage对象，大小为迷宫的宽度和高度
     QImage nestMazeImage(mazeLevel * 10, mazeLevel * 10, QImage::Format_ARGB32);

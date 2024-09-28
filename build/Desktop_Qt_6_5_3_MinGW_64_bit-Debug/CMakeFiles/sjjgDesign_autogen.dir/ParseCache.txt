@@ -364,6 +364,8 @@ C:/Users/86135/Desktop/UselessProject/SjjgDesign/sjjgDesign/mainwindow.h
  mdp:D:/QT67/Tools/mingw1120_64/x86_64-w64-mingw32/include/vadefs.h
  mdp:D:/QT67/Tools/mingw1120_64/x86_64-w64-mingw32/include/wchar.h
 C:/Users/86135/Desktop/UselessProject/SjjgDesign/sjjgDesign/main.cpp
+C:/Users/86135/Desktop/UselessProject/SjjgDesign/sjjgDesign/mainwindow.cpp
+ uic:./ui_mainwindow.h
 C:/Users/86135/Desktop/UselessProject/SjjgDesign/sjjgDesign/rescaleimg.h
  mmc:Q_OBJECT
  mdp:C:/Users/86135/Desktop/UselessProject/SjjgDesign/sjjgDesign/build/Desktop_Qt_6_5_3_MinGW_64_bit-Debug/sjjgDesign_autogen/moc_predefs.h
@@ -716,8 +718,6 @@ C:/Users/86135/Desktop/UselessProject/SjjgDesign/sjjgDesign/rescaleimg.h
  mdp:D:/QT67/Tools/mingw1120_64/x86_64-w64-mingw32/include/time.h
  mdp:D:/QT67/Tools/mingw1120_64/x86_64-w64-mingw32/include/vadefs.h
  mdp:D:/QT67/Tools/mingw1120_64/x86_64-w64-mingw32/include/wchar.h
-C:/Users/86135/Desktop/UselessProject/SjjgDesign/sjjgDesign/mainwindow.cpp
- uic:./ui_mainwindow.h
 C:/Users/86135/Desktop/UselessProject/SjjgDesign/sjjgDesign/maze.h
 C:/Users/86135/Desktop/UselessProject/SjjgDesign/sjjgDesign/maze.cpp
 C:/Users/86135/Desktop/UselessProject/SjjgDesign/sjjgDesign/interactiveview.h

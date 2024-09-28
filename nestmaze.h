@@ -7,11 +7,15 @@ class nestMaze : public Maze
 {
 public:
     int **nestMap;
+    bool inNest = false;
     nestMaze();
-    QImage mazeMap();
+    virtual QImage mazeMap();
+    void createNestMaze();
 
 private:
     QImage nestCell();
+    //QImage nestMazeCell;
+    virtual void base();
 };
 
 #endif // NESTMAZE_H
