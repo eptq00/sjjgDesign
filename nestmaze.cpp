@@ -5,8 +5,6 @@
 nestMaze::nestMaze() : Maze() {}
 
 QImage nestMaze::nestCell(){
-    //QImage nestImg3 = Maze::mazeMap();
-    this->createNestMaze();
     QImage mazeWall(10,10,QImage::Format_RGB888);
     QImage mazeRoad(10,10,QImage::Format_RGB888);
     QImage mazeMy(10,10,QImage::Format_RGB888);
@@ -58,15 +56,15 @@ void nestMaze::base() {
 
 void nestMaze::createNestMaze(){
     nestMaze::base();
-    this->start_x = mazeLevel/2+1;
+    this->start_x = mazeLevel / 2;
     this->start_y = 1;
     this->nestMap[this->start_x][this->start_y]=1;
     int currpoint_x = start_x, currpoint_y = start_y;
     bool up=false, down=false, left=false, right=false;
     QStack<int> MazeStack_x;
     QStack<int> MazeStack_y;
-    this->nestMap[mazeLevel / 2][0]=2;
-    this->nestMap[mazeLevel / 2][mazeLevel-1]=1;
+    this->nestMap[mazeLevel / 2][0] = 1;
+    this->nestMap[mazeLevel / 2][mazeLevel - 1] = 1;
     while(true){
         int ranNum=rand()%4;
         switch(ranNum){
@@ -142,6 +140,19 @@ void nestMaze::createNestMaze(){
     }
 }
 
+void nestMaze::nestCoordinate(){
+    while(true){
+        nest_x=rand()%mazeLevel;
+        nest_y=rand()%mazeLevel;
+        if(map[nest_x][nest_y] == 1){
+            if(map[nest_x][nest_y-1]==1 && map[nest_x][nest_y+1]==1 && map[nest_x-1][nest_y]!=1 && map[nest_x+1][nest_y]!=1){
+                map[nest_x][nest_y]=3;//3 嵌套
+                break;
+            }
+        }
+    }
+}
+
 QImage nestMaze::mazeMap(){
     QImage mazeWall(10,10,QImage::Format_RGB888);
     QImage mazeRoad(10,10,QImage::Format_RGB888);
@@ -151,18 +162,6 @@ QImage nestMaze::mazeMap(){
     mazeRoad.fill(QColor(Qt::white));
     mazeMy.fill(QColor(Qt::green));
 
-    int nest_x=0;
-    int nest_y=0;
-    while(true){
-        nest_x=rand()%mazeLevel;
-        nest_y=rand()%mazeLevel;
-        if(map[nest_x][nest_y] == 1){
-            if(map[nest_x][nest_y-1]==1 && map[nest_x][nest_y+1]==1){
-                map[nest_x][nest_y]=3;//3 嵌套
-                break;
-            }
-        }
-    }
     // 创建一个新的QImage对象，大小为迷宫的宽度和高度
     QImage nestMazeImage(mazeLevel * 10, mazeLevel * 10, QImage::Format_ARGB32);
     QPainter painter(&nestMazeImage); // 创建QPainter对象，用于绘制图像

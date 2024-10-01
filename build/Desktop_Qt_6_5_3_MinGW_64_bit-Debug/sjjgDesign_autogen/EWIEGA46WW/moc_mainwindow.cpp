@@ -52,7 +52,7 @@ static constexpr auto qt_meta_stringdata_CLASSMainWindowENDCLASS = QtMocHelpers:
     "on_mazeSize0_clicked",
     "on_mazeSizeSure_clicked",
     "on_mazeSizeBack_clicked",
-    "on_pushButton_clicked"
+    "on_mazeBegin_clicked"
 );
 #else  // !QT_MOC_HAS_STRING_DATA
 struct qt_meta_stringdata_CLASSMainWindowENDCLASS_t {
@@ -71,7 +71,7 @@ struct qt_meta_stringdata_CLASSMainWindowENDCLASS_t {
     char stringdata11[21];
     char stringdata12[24];
     char stringdata13[24];
-    char stringdata14[22];
+    char stringdata14[21];
 };
 #define QT_MOC_LITERAL(ofs, len) \
     uint(sizeof(qt_meta_stringdata_CLASSMainWindowENDCLASS_t::offsetsAndSizes) + ofs), len 
@@ -91,7 +91,7 @@ Q_CONSTINIT static const qt_meta_stringdata_CLASSMainWindowENDCLASS_t qt_meta_st
         QT_MOC_LITERAL(201, 20),  // "on_mazeSize0_clicked"
         QT_MOC_LITERAL(222, 23),  // "on_mazeSizeSure_clicked"
         QT_MOC_LITERAL(246, 23),  // "on_mazeSizeBack_clicked"
-        QT_MOC_LITERAL(270, 21)   // "on_pushButton_clicked"
+        QT_MOC_LITERAL(270, 20)   // "on_mazeBegin_clicked"
     },
     "MainWindow",
     "on_mazeSize1_clicked",
@@ -107,7 +107,7 @@ Q_CONSTINIT static const qt_meta_stringdata_CLASSMainWindowENDCLASS_t qt_meta_st
     "on_mazeSize0_clicked",
     "on_mazeSizeSure_clicked",
     "on_mazeSizeBack_clicked",
-    "on_pushButton_clicked"
+    "on_mazeBegin_clicked"
 };
 #undef QT_MOC_LITERAL
 #endif // !QT_MOC_HAS_STRING_DATA
@@ -192,7 +192,7 @@ Q_CONSTINIT const QMetaObject MainWindow::staticMetaObject = { {
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
         // method 'on_mazeSizeBack_clicked'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
-        // method 'on_pushButton_clicked'
+        // method 'on_mazeBegin_clicked'
         QtPrivate::TypeAndForceComplete<void, std::false_type>
     >,
     nullptr
@@ -216,7 +216,7 @@ void MainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         case 9: _t->on_mazeSize0_clicked(); break;
         case 10: _t->on_mazeSizeSure_clicked(); break;
         case 11: _t->on_mazeSizeBack_clicked(); break;
-        case 12: _t->on_pushButton_clicked(); break;
+        case 12: _t->on_mazeBegin_clicked(); break;
         default: ;
         }
     }

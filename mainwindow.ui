@@ -138,7 +138,7 @@
      </item>
     </layout>
    </widget>
-   <widget class="QPushButton" name="pushButton">
+   <widget class="QPushButton" name="mazeBegin">
     <property name="geometry">
      <rect>
       <x>30</x>
@@ -151,7 +151,7 @@
      <string>开始游戏</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_2">
+   <widget class="QPushButton" name="mazeAuto">
     <property name="geometry">
      <rect>
       <x>30</x>
@@ -178,6 +178,26 @@
     </property>
    </widget>
   </widget>
+  <action name="Game">
+   <property name="text">
+    <string>游戏</string>
+   </property>
+  </action>
+  <action name="Help">
+   <property name="text">
+    <string>帮助</string>
+   </property>
+  </action>
+  <action name="mode1">
+   <property name="text">
+    <string>普通模式</string>
+   </property>
+  </action>
+  <action name="mode2">
+   <property name="text">
+    <string>嵌套模式</string>
+   </property>
+  </action>
  </widget>
  <customwidgets>
   <customwidget>

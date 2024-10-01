@@ -134,6 +134,8 @@ void MainWindow::initNestMaze(){
     nestmaze = new nestMaze();
     nestmaze->setMazeLevel(this->mazeSize);
     nestmaze->createMaze();
+    nestmaze->createNestMaze();
+    nestmaze->nestCoordinate();
     showMaze(nestmaze);
 }
 
@@ -154,7 +156,8 @@ void MainWindow::showMaze(Maze* maze1){
     ui->mazeGraphicsView->show();
 }
 
-void MainWindow::on_pushButton_clicked()
+
+void MainWindow::on_mazeBegin_clicked()
 {
     if(mazeSize!=-1){
         this->initMaze();
@@ -202,6 +205,7 @@ void MainWindow::keyPressEvent(QKeyEvent *event){
             break;
         }
         showMaze(maze); // 显示新的图片
+        nextLevel(maze);    // 下一关
     }
 
     else if(this->mode == 2){
@@ -210,66 +214,92 @@ void MainWindow::keyPressEvent(QKeyEvent *event){
         case Qt::Key_W:
             // 如果角色上面为路，改变矩阵当前位置为1（路），上方为2（人），下同
             if(nestmaze->inNest){
-                if(nestmaze->nestMap[nestmaze->my_x-1][nestmaze->my_y] == 1){
-                    nestmaze->nestMap[nestmaze->my_x][nestmaze->my_y]=1;
-                    nestmaze->nestMap[nestmaze->my_x-1][nestmaze->my_y]=2;
-                    nestmaze->my_x=nestmaze->my_x-1;
+                if(nestmaze->nestMap[nestmaze->myNest_x-1][nestmaze->myNest_y] == 1){
+                    nestmaze->nestMap[nestmaze->myNest_x][nestmaze->myNest_y]=1;
+                    nestmaze->nestMap[nestmaze->myNest_x-1][nestmaze->myNest_y]=2;
+                    nestmaze->myNest_x=nestmaze->myNest_x-1;
                 }
             }
             else{
-                if(maze->map[maze->my_x-1][maze->my_y] == 1){
-                    maze->map[maze->my_x][maze->my_y]=1;
-                    maze->map[maze->my_x-1][maze->my_y]=2;
-                    maze->my_x=maze->my_x-1;
+                if(nestmaze->map[nestmaze->my_x-1][nestmaze->my_y] == 1){
+                    nestmaze->map[nestmaze->my_x][nestmaze->my_y]=1;
+                    nestmaze->map[nestmaze->my_x-1][nestmaze->my_y]=2;
+                    nestmaze->my_x=nestmaze->my_x-1;
                 }
             }
             break;
         case Qt::Key_A:
             if(nestmaze->inNest){
-                if(nestmaze->nestMap[nestmaze->my_x][nestmaze->my_y-1] == 1){
-                    nestmaze->nestMap[nestmaze->my_x][nestmaze->my_y]=1;
-                    nestmaze->nestMap[nestmaze->my_x][nestmaze->my_y-1]=2;
+                if(nestmaze->nestMap[nestmaze->myNest_x][nestmaze->myNest_y-1] == 1){
+                    nestmaze->nestMap[nestmaze->myNest_x][nestmaze->myNest_y]=1;
+                    nestmaze->nestMap[nestmaze->myNest_x][nestmaze->myNest_y-1]=2;
+                    nestmaze->myNest_y=nestmaze->myNest_y-1;
+                }
+                else if(nestmaze->myNest_x == nestmaze -> mazeLevel / 2 && nestmaze->myNest_y == 0){
+                    nestmaze->inNest = false;
                     nestmaze->my_y=nestmaze->my_y-1;
+                    nestmaze->map[nestmaze->my_x][nestmaze->my_y]=2;
                 }
             }
             else{
                 if(nestmaze->map[nestmaze->my_x][nestmaze->my_y-1] == 1){
                     nestmaze->map[nestmaze->my_x][nestmaze->my_y]=1;
                     nestmaze->map[nestmaze->my_x][nestmaze->my_y-1]=2;
-                    nestmaze->my_y=maze->my_y-1;
+                    nestmaze->my_y=nestmaze->my_y-1;
+                }
+                else if(nestmaze->map[nestmaze->my_x][nestmaze->my_y-1] == 3){
+                    nestmaze->inNest = true;
+                    nestmaze->map[nestmaze->my_x][nestmaze->my_y] = 1;
+                    nestmaze->myNest_x=nestmaze->mazeLevel / 2;
+                    nestmaze->myNest_y=nestmaze->mazeLevel - 1;
+                    nestmaze->nestMap[nestmaze->myNest_x][nestmaze->myNest_y] = 2;
+                    nestmaze->my_y=nestmaze->my_y-1;
                 }
             }
             // 在这里添加向左移动的逻辑
             break;
         case Qt::Key_S:
             if(nestmaze->inNest){
-                if(nestmaze->nestMap[nestmaze->my_x+1][nestmaze->my_y] == 1){
-                    nestmaze->nestMap[nestmaze->my_x][nestmaze->my_y]=1;
-                    nestmaze->nestMap[nestmaze->my_x+1][nestmaze->my_y]=2;
-                    nestmaze->my_x=nestmaze->my_x+1;
+                if(nestmaze->nestMap[nestmaze->myNest_x+1][nestmaze->myNest_y] == 1){
+                    nestmaze->nestMap[nestmaze->myNest_x][nestmaze->myNest_y]=1;
+                    nestmaze->nestMap[nestmaze->myNest_x+1][nestmaze->myNest_y]=2;
+                    nestmaze->myNest_x=nestmaze->myNest_x+1;
                 }
             }
             else{
-                if(maze->map[maze->my_x+1][maze->my_y] == 1){
-                    maze->map[maze->my_x][maze->my_y]=1;
-                    maze->map[maze->my_x+1][maze->my_y]=2;
-                    maze->my_x=maze->my_x+1;
+                if(nestmaze->map[nestmaze->my_x+1][nestmaze->my_y] == 1){
+                    nestmaze->map[nestmaze->my_x][nestmaze->my_y]=1;
+                    nestmaze->map[nestmaze->my_x+1][nestmaze->my_y]=2;
+                    nestmaze->my_x=nestmaze->my_x+1;
                 }
             }
             // 在这里添加向下移动的逻辑
             break;
         case Qt::Key_D:
             if(nestmaze->inNest){
-                if(nestmaze->nestMap[nestmaze->my_x][nestmaze->my_y+1] == 1){
-                    nestmaze->nestMap[nestmaze->my_x][nestmaze->my_y]=1;
-                    nestmaze->nestMap[nestmaze->my_x][nestmaze->my_y+1]=2;
-                    nestmaze->my_y=nestmaze->my_y+1;
+                if(nestmaze->nestMap[nestmaze->myNest_x][nestmaze->myNest_y+1] == 1){
+                    nestmaze->nestMap[nestmaze->myNest_x][nestmaze->myNest_y]=1;
+                    nestmaze->nestMap[nestmaze->myNest_x][nestmaze->myNest_y+1]=2;
+                    nestmaze->myNest_y=nestmaze->myNest_y+1;
+                }
+                else if(nestmaze->myNest_x == nestmaze -> mazeLevel / 2 && nestmaze->myNest_y == nestmaze->mazeLevel - 1){
+                    nestmaze->inNest = false;
+                    nestmaze->my_y=nestmaze->my_y + 1;
+                    nestmaze->map[nestmaze->my_x][nestmaze->my_y]=2;
                 }
             }
             else{
                 if(nestmaze->map[nestmaze->my_x][nestmaze->my_y+1] == 1){
                     nestmaze->map[nestmaze->my_x][nestmaze->my_y]=1;
                     nestmaze->map[nestmaze->my_x][nestmaze->my_y+1]=2;
+                    nestmaze->my_y=nestmaze->my_y+1;
+                }
+                else if(nestmaze->map[nestmaze->my_x][nestmaze->my_y+1] == 3){
+                    nestmaze->inNest = true;
+                    nestmaze->map[nestmaze->my_x][nestmaze->my_y] = 1;
+                    nestmaze->myNest_x=nestmaze->mazeLevel / 2;
+                    nestmaze->myNest_y=0;
+                    nestmaze->nestMap[nestmaze->myNest_x][nestmaze->myNest_y] = 2;
                     nestmaze->my_y=nestmaze->my_y+1;
                 }
             }
@@ -280,15 +310,18 @@ void MainWindow::keyPressEvent(QKeyEvent *event){
         }
         showMaze(nestmaze);
     }
-    nextLevel();    // 下一关
+
 }
 
 
-void MainWindow::nextLevel(){
-    if(maze->map[maze->mazeLevel-2][maze->mazeLevel-1]==2){
+void MainWindow::nextLevel(Maze* maze1){
+    if(maze1->map[maze1->mazeLevel-2][maze1->mazeLevel-1]==2){
         //通关逻辑
         ui->mazeSizeLine->setText("你赢了");
-        this->mode = 2;
+        this->mode=2;
         initNestMaze();
     }
 }
+
+
+

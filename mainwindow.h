@@ -45,7 +45,7 @@ private slots:
 
     void on_mazeSizeBack_clicked();
 
-    void on_pushButton_clicked();
+    void on_mazeBegin_clicked();
 
 private:
     Ui::MainWindow *ui;
@@ -59,6 +59,6 @@ private:
     void showNestMaze();
     void initMaze();
     void initNestMaze();
-    void nextLevel();
+    void nextLevel(Maze *maze);
 };
 #endif // MAINWINDOW_H

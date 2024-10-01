@@ -10,6 +10,7 @@
 #define UI_MAINWINDOW_H
 
 #include <QtCore/QVariant>
+#include <QtGui/QAction>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QGridLayout>
 #include <QtWidgets/QLabel>
@@ -25,6 +26,10 @@ QT_BEGIN_NAMESPACE
 class Ui_MainWindow
 {
 public:
+    QAction *Game;
+    QAction *Help;
+    QAction *mode1;
+    QAction *mode2;
     QWidget *centralwidget;
     QWidget *verticalLayoutWidget_2;
     QVBoxLayout *mazeSizeBox;
@@ -45,8 +50,8 @@ public:
     QPushButton *mazeSize4;
     QPushButton *mazeSize0;
     QLabel *mazeTipLabel1;
-    QPushButton *pushButton;
-    QPushButton *pushButton_2;
+    QPushButton *mazeBegin;
+    QPushButton *mazeAuto;
     rescaleImg *mazeGraphicsView;
 
     void setupUi(QMainWindow *MainWindow)
@@ -54,6 +59,14 @@ public:
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName("MainWindow");
         MainWindow->resize(800, 600);
+        Game = new QAction(MainWindow);
+        Game->setObjectName("Game");
+        Help = new QAction(MainWindow);
+        Help->setObjectName("Help");
+        mode1 = new QAction(MainWindow);
+        mode1->setObjectName("mode1");
+        mode2 = new QAction(MainWindow);
+        mode2->setObjectName("mode2");
         centralwidget = new QWidget(MainWindow);
         centralwidget->setObjectName("centralwidget");
         verticalLayoutWidget_2 = new QWidget(centralwidget);
@@ -147,12 +160,12 @@ public:
 
         mazeSizeBox->addWidget(mazeTipLabel1);
 
-        pushButton = new QPushButton(centralwidget);
-        pushButton->setObjectName("pushButton");
-        pushButton->setGeometry(QRect(30, 280, 93, 28));
-        pushButton_2 = new QPushButton(centralwidget);
-        pushButton_2->setObjectName("pushButton_2");
-        pushButton_2->setGeometry(QRect(30, 320, 93, 28));
+        mazeBegin = new QPushButton(centralwidget);
+        mazeBegin->setObjectName("mazeBegin");
+        mazeBegin->setGeometry(QRect(30, 280, 93, 28));
+        mazeAuto = new QPushButton(centralwidget);
+        mazeAuto->setObjectName("mazeAuto");
+        mazeAuto->setGeometry(QRect(30, 320, 93, 28));
         mazeGraphicsView = new rescaleImg(centralwidget);
         mazeGraphicsView->setObjectName("mazeGraphicsView");
         mazeGraphicsView->setGeometry(QRect(150, 0, 651, 601));
@@ -167,6 +180,10 @@ public:
     void retranslateUi(QMainWindow *MainWindow)
     {
         MainWindow->setWindowTitle(QCoreApplication::translate("MainWindow", "MainWindow", nullptr));
+        Game->setText(QCoreApplication::translate("MainWindow", "\346\270\270\346\210\217", nullptr));
+        Help->setText(QCoreApplication::translate("MainWindow", "\345\270\256\345\212\251", nullptr));
+        mode1->setText(QCoreApplication::translate("MainWindow", "\346\231\256\351\200\232\346\250\241\345\274\217", nullptr));
+        mode2->setText(QCoreApplication::translate("MainWindow", "\345\265\214\345\245\227\346\250\241\345\274\217", nullptr));
         mazeSizeLabel1->setText(QCoreApplication::translate("MainWindow", "\350\257\267\350\276\223\345\205\245\350\277\267\345\256\253\345\244\247\345\260\217\357\274\232", nullptr));
         mazeSizeLabel2->setText(QCoreApplication::translate("MainWindow", "\346\263\250\346\204\217\357\274\232\345\245\207\346\225\260\357\274\214\345\260\217\344\272\216xxx", nullptr));
         mazeSize8->setText(QCoreApplication::translate("MainWindow", "8", nullptr));
@@ -182,8 +199,8 @@ public:
         mazeSize4->setText(QCoreApplication::translate("MainWindow", "4", nullptr));
         mazeSize0->setText(QCoreApplication::translate("MainWindow", "0", nullptr));
         mazeTipLabel1->setText(QCoreApplication::translate("MainWindow", "     \345\275\223\345\211\215\350\277\267\345\256\253\351\230\266\346\225\260\344\270\272\357\274\232", nullptr));
-        pushButton->setText(QCoreApplication::translate("MainWindow", "\345\274\200\345\247\213\346\270\270\346\210\217", nullptr));
-        pushButton_2->setText(QCoreApplication::translate("MainWindow", "\350\207\252\345\212\250\345\257\273\350\267\257", nullptr));
+        mazeBegin->setText(QCoreApplication::translate("MainWindow", "\345\274\200\345\247\213\346\270\270\346\210\217", nullptr));
+        mazeAuto->setText(QCoreApplication::translate("MainWindow", "\350\207\252\345\212\250\345\257\273\350\267\257", nullptr));
     } // retranslateUi
 
 };
