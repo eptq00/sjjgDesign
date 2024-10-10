@@ -178,24 +178,68 @@
     </property>
    </widget>
   </widget>
-  <action name="Game">
+  <widget class="QMenuBar" name="menuBar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>800</width>
+     <height>25</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menu">
+    <property name="title">
+     <string>选项</string>
+    </property>
+    <addaction name="actionGame"/>
+    <addaction name="actionHelp"/>
+   </widget>
+   <widget class="QMenu" name="menu_2">
+    <property name="title">
+     <string>模式</string>
+    </property>
+    <widget class="QMenu" name="menu_3">
+     <property name="title">
+      <string>无尽</string>
+     </property>
+     <addaction name="mode11"/>
+     <addaction name="mode12"/>
+    </widget>
+    <addaction name="menu_3"/>
+    <addaction name="actionEndless"/>
+   </widget>
+   <addaction name="menu"/>
+   <addaction name="menu_2"/>
+  </widget>
+  <action name="actionGame">
    <property name="text">
-    <string>游戏</string>
+    <string>Game</string>
+   </property>
+   <property name="shortcut">
+    <string>Alt+G</string>
    </property>
   </action>
-  <action name="Help">
+  <action name="actionHelp">
    <property name="text">
-    <string>帮助</string>
+    <string>Help</string>
+   </property>
+   <property name="shortcut">
+    <string>Alt+H</string>
    </property>
   </action>
-  <action name="mode1">
+  <action name="actionEndless">
    <property name="text">
-    <string>普通模式</string>
+    <string>计时</string>
    </property>
   </action>
-  <action name="mode2">
+  <action name="mode11">
    <property name="text">
-    <string>嵌套模式</string>
+    <string>普通</string>
+   </property>
+  </action>
+  <action name="mode12">
+   <property name="text">
+    <string>内嵌</string>
    </property>
   </action>
  </widget>

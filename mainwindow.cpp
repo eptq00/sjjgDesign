@@ -160,7 +160,12 @@ void MainWindow::showMaze(Maze* maze1){
 void MainWindow::on_mazeBegin_clicked()
 {
     if(mazeSize!=-1){
-        this->initMaze();
+        if(this->mode == 1){
+            this->initMaze();
+        }
+        else if(this->mode == 2){
+            this->initNestMaze();
+        }
     }
 }
 
@@ -171,14 +176,14 @@ void MainWindow::keyPressEvent(QKeyEvent *event){
         // W键逻辑-向上移动
         case Qt::Key_W:
             // 如果角色上面为路，改变矩阵当前位置为1（路），上方为2（人），下同
-            if(maze->map[maze->my_x-1][maze->my_y] == 1){
+            if(maze->map[maze->my_x-1][maze->my_y] == 1 || maze->map[maze->my_x-1][maze->my_y] == 4){
                 maze->map[maze->my_x][maze->my_y]=1;
                 maze->map[maze->my_x-1][maze->my_y]=2;
                 maze->my_x=maze->my_x-1;
             }
             break;
         case Qt::Key_A:
-            if(maze->map[maze->my_x][maze->my_y-1] == 1){
+            if(maze->map[maze->my_x][maze->my_y-1] == 1 || maze->map[maze->my_x][maze->my_y-1] == 4){
                 maze->map[maze->my_x][maze->my_y]=1;
                 maze->map[maze->my_x][maze->my_y-1]=2;
                 maze->my_y=maze->my_y-1;
@@ -186,7 +191,7 @@ void MainWindow::keyPressEvent(QKeyEvent *event){
             // 在这里添加向左移动的逻辑
             break;
         case Qt::Key_S:
-            if(maze->map[maze->my_x+1][maze->my_y] == 1){
+            if(maze->map[maze->my_x+1][maze->my_y] == 1 || maze->map[maze->my_x+1][maze->my_y] == 4){
                 maze->map[maze->my_x][maze->my_y]=1;
                 maze->map[maze->my_x+1][maze->my_y]=2;
                 maze->my_x=maze->my_x+1;
@@ -194,7 +199,7 @@ void MainWindow::keyPressEvent(QKeyEvent *event){
             // 在这里添加向下移动的逻辑
             break;
         case Qt::Key_D:
-            if(maze->map[maze->my_x][maze->my_y+1] == 1){
+            if(maze->map[maze->my_x][maze->my_y+1] == 1 || maze->map[maze->my_x][maze->my_y+1] == 4){
                 maze->map[maze->my_x][maze->my_y]=1;
                 maze->map[maze->my_x][maze->my_y+1]=2;
                 maze->my_y=maze->my_y+1;
@@ -309,6 +314,7 @@ void MainWindow::keyPressEvent(QKeyEvent *event){
             break;
         }
         showMaze(nestmaze);
+        nextLevel(nestmaze);    // 下一关
     }
 
 }
@@ -318,10 +324,51 @@ void MainWindow::nextLevel(Maze* maze1){
     if(maze1->map[maze1->mazeLevel-2][maze1->mazeLevel-1]==2){
         //通关逻辑
         ui->mazeSizeLine->setText("你赢了");
-        this->mode=2;
-        initNestMaze();
+        if(this->mode==1){
+            initMaze();
+        }
+        else if(this->mode==2){
+            initNestMaze();
+        }
     }
 }
 
 
+
+
+void MainWindow::on_actionHelp_triggered()
+{
+    QGraphicsScene *scene = new QGraphicsScene;
+    QImage orimage(10,10,QImage::Format_RGB888);
+    orimage.fill(QColor(Qt::black));
+    scene->addPixmap(QPixmap::fromImage(orimage));
+    ui->mazeGraphicsView->setScene(scene);
+    ui->mazeGraphicsView->show();
+}
+
+
+void MainWindow::on_actionGame_triggered()
+{
+    QGraphicsScene *scene = ui->mazeGraphicsView->scene();
+    scene->clear();
+}
+
+
+void MainWindow::on_mode11_triggered()
+{
+    this->mode = 1;
+}
+
+
+void MainWindow::on_mode12_triggered()
+{
+    this->mode=2;
+}
+
+
+void MainWindow::on_mazeAuto_clicked()
+{
+    maze->autoFindPath();
+    showMaze(maze);
+}
 

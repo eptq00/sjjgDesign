@@ -25,6 +25,17 @@ void Maze::base() {
             this->map[i][j] = 0;
         }
     }
+
+    recordMap = new int*[mazeLevel];
+    for (int i = 0; i < mazeLevel; i++) {
+        recordMap[i] = new int[mazeLevel];
+    }
+
+    for (int i = 0; i < mazeLevel; i++) {
+        for (int j = 0; j < mazeLevel; j++) {
+            this->recordMap[i][j] = 1;
+        }
+    }
 }
 
 // 重新设置方向
@@ -132,9 +143,11 @@ QImage Maze::mazeMap(){
     QImage mazeWall(10,10,QImage::Format_RGB888);
     QImage mazeRoad(10,10,QImage::Format_RGB888);
     QImage mazeMy(10,10,QImage::Format_RGB888);
+    QImage mazeTip(10,10,QImage::Format_RGB888);
     mazeWall.fill(QColor(Qt::black));
     mazeRoad.fill(QColor(Qt::white));
     mazeMy.fill(QColor(Qt::green));
+    mazeTip.fill(QColor(Qt::yellow));
 
     // 创建一个新的QImage对象，大小为迷宫的宽度和高度
     QImage mazeImage(mazeLevel * 10, mazeLevel * 10, QImage::Format_ARGB32);
@@ -152,13 +165,95 @@ QImage Maze::mazeMap(){
                 painter.drawImage(col * 10, row * 10, mazeWall);
             }
             // 2-绘制角色图片
-            else{
+            else if(map[row][col] == 2) {
                 painter.drawImage(col * 10, row * 10, mazeMy);
+            }
+            else if(map[row][col] == 4) {
+                painter.drawImage(col * 10, row * 10, mazeTip);
             }
         }
     }
     return mazeImage; // 返回生成的迷宫图像
 }
 
+void Maze::autoFindPath(){
+    QList<int> MazeList_x;
+    QList<int> MazeList_y;
+    int temp_x, temp_y, temp_state;
+    recordMap[this->mazeLevel-2][this->mazeLevel-2]=0;  //出口位置标记为已经访问过,0为墙
+    
+    MazeList_x.push_back(this->mazeLevel-2);    //出口入list
+    MazeList_y.push_back(this->mazeLevel-2);    
+    
+    int i , j;
+    while(!MazeList_x.isEmpty() && !MazeList_x.isEmpty())
+    {
+        int top_x = MazeList_x.back();
+        int top_y = MazeList_y.back();
+        MazeList_x.pop_back();
+        MazeList_y.pop_back();
+        
+        if(!autoPath_x.isEmpty() && !autoPath_y.isEmpty() && !(top_x==autoPath_x.back()) && !(top_y==autoPath_y.back())){
+            autoPath_x.push_back(top_x);
+            autoPath_y.push_back(top_y);
+        }
+        if(autoPath_x.isEmpty() && autoPath_y.isEmpty()){
+            autoPath_x.push_back(top_x);
+            autoPath_y.push_back(top_y);
+        }
+
+        i = top_x;
+        j = top_y;
+        int d = 0;  // 用于表示方向 (0: 上, 1: 右, 2: 下, 3: 左)
+        while(d < 4)
+        {
+            // 根据方向移动
+            switch(d)
+            {
+            case 0: temp_x = i - 1; temp_y = j; break; // 上
+            case 1: temp_x = i; temp_y = j + 1; break; // 右
+            case 2: temp_x = i + 1; temp_y = j; break; // 下
+            case 3: temp_x = i; temp_y = j - 1; break; // 左
+            }
+
+            if(temp_x == 1 && temp_y == 1)
+            {
+                MazeList_x.push_back(top_x);
+                MazeList_y.push_back(top_y);
+                MazeList_x.push_back(temp_x);
+                MazeList_y.push_back(temp_y);
+                autoPath_x.push_back(temp_x);
+                autoPath_y.push_back(temp_y);
+
+                for(int k=0 ; k<MazeList_x.size();k++)
+                {
+                    qDebug() << "(" << MazeList_x[k] << "," << MazeList_y[k] << ")";
+                }
+
+                for (int k = 0; k < MazeList_x.size(); k++) {
+                    map[MazeList_x[k]][MazeList_y[k]] = 4;  // 标记为路径
+                }
+                map[mazeLevel-2][mazeLevel-1]=4;
+                return;
+            }
+
+            if (map[temp_x][temp_y] == 1 && recordMap[temp_x][temp_y] == 1) {
+                recordMap[temp_x][temp_y] = 0;  // 标记已访问
+                MazeList_x.push_back(top_x);
+                MazeList_y.push_back(top_y);
+                MazeList_x.push_back(temp_x);
+                MazeList_y.push_back(temp_y);
+                autoPath_x.push_back(temp_x);
+                autoPath_y.push_back(temp_y);
+                break;  // 找到可走的路径，跳出方向循环
+            }
+            d++;
+        }
+        if(d==4){
+            autoPath_x.push_back(MazeList_x.back());
+            autoPath_y.push_back(MazeList_y.back());
+        }
+    }
+}
 
 

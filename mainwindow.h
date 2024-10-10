@@ -47,6 +47,16 @@ private slots:
 
     void on_mazeBegin_clicked();
 
+    void on_actionHelp_triggered();
+
+    void on_actionGame_triggered();
+
+    void on_mode11_triggered();
+
+    void on_mode12_triggered();
+
+    void on_mazeAuto_clicked();
+
 private:
     Ui::MainWindow *ui;
     QString expression;
