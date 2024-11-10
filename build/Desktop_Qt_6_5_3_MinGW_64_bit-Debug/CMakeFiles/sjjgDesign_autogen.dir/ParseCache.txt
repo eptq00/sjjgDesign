@@ -5,11 +5,14 @@ C:/Users/86135/Desktop/UselessProject/SjjgDesign/sjjgDesign/mainwindow.h
  mdp:C:/Users/86135/Desktop/UselessProject/SjjgDesign/sjjgDesign/mainwindow.h
  mdp:C:/Users/86135/Desktop/UselessProject/SjjgDesign/sjjgDesign/maze.h
  mdp:C:/Users/86135/Desktop/UselessProject/SjjgDesign/sjjgDesign/nestmaze.h
+ mdp:C:/Users/86135/Desktop/UselessProject/SjjgDesign/sjjgDesign/timecount.h
  mdp:D:/QT67/6.5.3/mingw_64/include/QtCore/QList
  mdp:D:/QT67/6.5.3/mingw_64/include/QtCore/QObject
  mdp:D:/QT67/6.5.3/mingw_64/include/QtCore/QRect
  mdp:D:/QT67/6.5.3/mingw_64/include/QtCore/QSize
  mdp:D:/QT67/6.5.3/mingw_64/include/QtCore/QSizeF
+ mdp:D:/QT67/6.5.3/mingw_64/include/QtCore/QString
+ mdp:D:/QT67/6.5.3/mingw_64/include/QtCore/QTime
  mdp:D:/QT67/6.5.3/mingw_64/include/QtCore/q20memory.h
  mdp:D:/QT67/6.5.3/mingw_64/include/QtCore/q20type_traits.h
  mdp:D:/QT67/6.5.3/mingw_64/include/QtCore/qalgorithms.h
@@ -26,6 +29,7 @@ C:/Users/86135/Desktop/UselessProject/SjjgDesign/sjjgDesign/mainwindow.h
  mdp:D:/QT67/6.5.3/mingw_64/include/QtCore/qbytearrayalgorithms.h
  mdp:D:/QT67/6.5.3/mingw_64/include/QtCore/qbytearraylist.h
  mdp:D:/QT67/6.5.3/mingw_64/include/QtCore/qbytearrayview.h
+ mdp:D:/QT67/6.5.3/mingw_64/include/QtCore/qcalendar.h
  mdp:D:/QT67/6.5.3/mingw_64/include/QtCore/qchar.h
  mdp:D:/QT67/6.5.3/mingw_64/include/QtCore/qcompare.h
  mdp:D:/QT67/6.5.3/mingw_64/include/QtCore/qcompare_impl.h
@@ -39,6 +43,7 @@ C:/Users/86135/Desktop/UselessProject/SjjgDesign/sjjgDesign/mainwindow.h
  mdp:D:/QT67/6.5.3/mingw_64/include/QtCore/qcoreevent.h
  mdp:D:/QT67/6.5.3/mingw_64/include/QtCore/qdarwinhelpers.h
  mdp:D:/QT67/6.5.3/mingw_64/include/QtCore/qdatastream.h
+ mdp:D:/QT67/6.5.3/mingw_64/include/QtCore/qdatetime.h
  mdp:D:/QT67/6.5.3/mingw_64/include/QtCore/qdebug.h
  mdp:D:/QT67/6.5.3/mingw_64/include/QtCore/qexceptionhandling.h
  mdp:D:/QT67/6.5.3/mingw_64/include/QtCore/qflags.h
@@ -56,6 +61,7 @@ C:/Users/86135/Desktop/UselessProject/SjjgDesign/sjjgDesign/mainwindow.h
  mdp:D:/QT67/6.5.3/mingw_64/include/QtCore/qiterator.h
  mdp:D:/QT67/6.5.3/mingw_64/include/QtCore/qline.h
  mdp:D:/QT67/6.5.3/mingw_64/include/QtCore/qlist.h
+ mdp:D:/QT67/6.5.3/mingw_64/include/QtCore/qlocale.h
  mdp:D:/QT67/6.5.3/mingw_64/include/QtCore/qlogging.h
  mdp:D:/QT67/6.5.3/mingw_64/include/QtCore/qmalloc.h
  mdp:D:/QT67/6.5.3/mingw_64/include/QtCore/qmap.h
@@ -1802,3 +1808,5 @@ C:/Users/86135/Desktop/UselessProject/SjjgDesign/sjjgDesign/mazekeyevent.h
 C:/Users/86135/Desktop/UselessProject/SjjgDesign/sjjgDesign/mazekeyevent.cpp
 C:/Users/86135/Desktop/UselessProject/SjjgDesign/sjjgDesign/nestmaze.h
 C:/Users/86135/Desktop/UselessProject/SjjgDesign/sjjgDesign/nestmaze.cpp
+C:/Users/86135/Desktop/UselessProject/SjjgDesign/sjjgDesign/timecount.h
+C:/Users/86135/Desktop/UselessProject/SjjgDesign/sjjgDesign/timecount.cpp

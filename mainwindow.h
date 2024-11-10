@@ -4,6 +4,7 @@
 #include <QMainWindow>
 #include "maze.h"
 #include "nestmaze.h"
+#include "timecount.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -57,18 +58,30 @@ private slots:
 
     void on_mazeAuto_clicked();
 
+    void on_mode21_triggered();
+
+    void on_mode22_triggered();
+
+    void on_pushButton_clicked();
+
 private:
     Ui::MainWindow *ui;
     QString expression;
-
+    TimeCount* timeCNT;
+    QTimer* timer;
     Maze* maze;
     nestMaze* nestmaze;
+    bool lock = false;
     int mazeSize = -1;
-    int mode = 1;
+    int mode = 1; //1-无尽普通 2-无尽嵌套 3-计时普通
     void showMaze(Maze *maze);
     void showNestMaze();
+    void showNestCell(nestMaze* nestmaze1);//显示小内嵌迷宫
     void initMaze();
     void initNestMaze();
     void nextLevel(Maze *maze);
+    void refresh();
+    void largeNest(nestMaze* nestmaze1);
+    void smallNest(nestMaze* nestmaze1);
 };
 #endif // MAINWINDOW_H

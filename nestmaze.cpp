@@ -37,8 +37,8 @@ QImage nestMaze::nestCell(){
             }
         }
     }
-    QImage nestImg = mazeImage.scaled(10,10);
-    return nestImg;
+
+    return mazeImage;
 }
 
 void nestMaze::base() {
@@ -158,6 +158,8 @@ QImage nestMaze::mazeMap(){
     QImage mazeRoad(10,10,QImage::Format_RGB888);
     QImage mazeMy(10,10,QImage::Format_RGB888);
     QImage nestMazeCell=this->nestCell();
+    nestMazeCell = nestMazeCell.scaled(10,10);
+    //QImage nestImg = mazeImage.scaled(10,10);
     mazeWall.fill(QColor(Qt::black));
     mazeRoad.fill(QColor(Qt::white));
     mazeMy.fill(QColor(Qt::green));
@@ -187,4 +189,8 @@ QImage nestMaze::mazeMap(){
         }
     }
     return nestMazeImage; // 返回生成的迷宫图像
+}
+
+QImage nestMaze::getNestCell(){
+    return this->nestCell();
 }

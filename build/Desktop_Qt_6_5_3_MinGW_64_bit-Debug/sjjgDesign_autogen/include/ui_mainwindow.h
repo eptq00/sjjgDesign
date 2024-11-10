@@ -30,9 +30,10 @@ class Ui_MainWindow
 public:
     QAction *actionGame;
     QAction *actionHelp;
-    QAction *actionEndless;
     QAction *mode11;
     QAction *mode12;
+    QAction *mode21;
+    QAction *mode22;
     QWidget *centralwidget;
     QWidget *verticalLayoutWidget_2;
     QVBoxLayout *mazeSizeBox;
@@ -56,10 +57,12 @@ public:
     QPushButton *mazeBegin;
     QPushButton *mazeAuto;
     rescaleImg *mazeGraphicsView;
+    QLabel *TimeCNT;
     QMenuBar *menuBar;
     QMenu *menu;
     QMenu *menu_2;
     QMenu *menu_3;
+    QMenu *menu_4;
 
     void setupUi(QMainWindow *MainWindow)
     {
@@ -70,12 +73,14 @@ public:
         actionGame->setObjectName("actionGame");
         actionHelp = new QAction(MainWindow);
         actionHelp->setObjectName("actionHelp");
-        actionEndless = new QAction(MainWindow);
-        actionEndless->setObjectName("actionEndless");
         mode11 = new QAction(MainWindow);
         mode11->setObjectName("mode11");
         mode12 = new QAction(MainWindow);
         mode12->setObjectName("mode12");
+        mode21 = new QAction(MainWindow);
+        mode21->setObjectName("mode21");
+        mode22 = new QAction(MainWindow);
+        mode22->setObjectName("mode22");
         centralwidget = new QWidget(MainWindow);
         centralwidget->setObjectName("centralwidget");
         verticalLayoutWidget_2 = new QWidget(centralwidget);
@@ -179,6 +184,9 @@ public:
         mazeGraphicsView->setObjectName("mazeGraphicsView");
         mazeGraphicsView->setGeometry(QRect(150, 0, 651, 601));
         mazeGraphicsView->setDragMode(QGraphicsView::DragMode::ScrollHandDrag);
+        TimeCNT = new QLabel(centralwidget);
+        TimeCNT->setObjectName("TimeCNT");
+        TimeCNT->setGeometry(QRect(30, 450, 91, 31));
         MainWindow->setCentralWidget(centralwidget);
         menuBar = new QMenuBar(MainWindow);
         menuBar->setObjectName("menuBar");
@@ -189,6 +197,8 @@ public:
         menu_2->setObjectName("menu_2");
         menu_3 = new QMenu(menu_2);
         menu_3->setObjectName("menu_3");
+        menu_4 = new QMenu(menu_2);
+        menu_4->setObjectName("menu_4");
         MainWindow->setMenuBar(menuBar);
 
         menuBar->addAction(menu->menuAction());
@@ -196,9 +206,11 @@ public:
         menu->addAction(actionGame);
         menu->addAction(actionHelp);
         menu_2->addAction(menu_3->menuAction());
-        menu_2->addAction(actionEndless);
+        menu_2->addAction(menu_4->menuAction());
         menu_3->addAction(mode11);
         menu_3->addAction(mode12);
+        menu_4->addAction(mode21);
+        menu_4->addAction(mode22);
 
         retranslateUi(MainWindow);
 
@@ -216,9 +228,10 @@ public:
 #if QT_CONFIG(shortcut)
         actionHelp->setShortcut(QCoreApplication::translate("MainWindow", "Alt+H", nullptr));
 #endif // QT_CONFIG(shortcut)
-        actionEndless->setText(QCoreApplication::translate("MainWindow", "\350\256\241\346\227\266", nullptr));
         mode11->setText(QCoreApplication::translate("MainWindow", "\346\231\256\351\200\232", nullptr));
         mode12->setText(QCoreApplication::translate("MainWindow", "\345\206\205\345\265\214", nullptr));
+        mode21->setText(QCoreApplication::translate("MainWindow", "\346\231\256\351\200\232", nullptr));
+        mode22->setText(QCoreApplication::translate("MainWindow", "\345\206\205\345\265\214", nullptr));
         mazeSizeLabel1->setText(QCoreApplication::translate("MainWindow", "\350\257\267\350\276\223\345\205\245\350\277\267\345\256\253\345\244\247\345\260\217\357\274\232", nullptr));
         mazeSizeLabel2->setText(QCoreApplication::translate("MainWindow", "\346\263\250\346\204\217\357\274\232\345\245\207\346\225\260\357\274\214\345\260\217\344\272\216xxx", nullptr));
         mazeSize8->setText(QCoreApplication::translate("MainWindow", "8", nullptr));
@@ -236,9 +249,11 @@ public:
         mazeTipLabel1->setText(QCoreApplication::translate("MainWindow", "     \345\275\223\345\211\215\350\277\267\345\256\253\351\230\266\346\225\260\344\270\272\357\274\232", nullptr));
         mazeBegin->setText(QCoreApplication::translate("MainWindow", "\345\274\200\345\247\213\346\270\270\346\210\217", nullptr));
         mazeAuto->setText(QCoreApplication::translate("MainWindow", "\350\207\252\345\212\250\345\257\273\350\267\257", nullptr));
+        TimeCNT->setText(QString());
         menu->setTitle(QCoreApplication::translate("MainWindow", "\351\200\211\351\241\271", nullptr));
         menu_2->setTitle(QCoreApplication::translate("MainWindow", "\346\250\241\345\274\217", nullptr));
         menu_3->setTitle(QCoreApplication::translate("MainWindow", "\346\227\240\345\260\275", nullptr));
+        menu_4->setTitle(QCoreApplication::translate("MainWindow", "\350\256\241\346\227\266", nullptr));
     } // retranslateUi
 
 };

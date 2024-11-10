@@ -26,6 +26,8 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
         maze.h maze.cpp
         rescaleimg.h rescaleimg.cpp
         nestmaze.h nestmaze.cpp
+        timecount.h timecount.cpp
+        threedmaze.h threedmaze.cpp
 
 
 

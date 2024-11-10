@@ -2,11 +2,14 @@ C:/Users/86135/Desktop/UselessProject/SjjgDesign/sjjgDesign/build/Desktop_Qt_6_5
   C:/Users/86135/Desktop/UselessProject/SjjgDesign/sjjgDesign/build/Desktop_Qt_6_5_3_MinGW_64_bit-Debug/sjjgDesign_autogen/moc_predefs.h \
   C:/Users/86135/Desktop/UselessProject/SjjgDesign/sjjgDesign/maze.h \
   C:/Users/86135/Desktop/UselessProject/SjjgDesign/sjjgDesign/nestmaze.h \
+  C:/Users/86135/Desktop/UselessProject/SjjgDesign/sjjgDesign/timecount.h \
   D:/QT67/6.5.3/mingw_64/include/QtCore/QList \
   D:/QT67/6.5.3/mingw_64/include/QtCore/QObject \
   D:/QT67/6.5.3/mingw_64/include/QtCore/QRect \
   D:/QT67/6.5.3/mingw_64/include/QtCore/QSize \
   D:/QT67/6.5.3/mingw_64/include/QtCore/QSizeF \
+  D:/QT67/6.5.3/mingw_64/include/QtCore/QString \
+  D:/QT67/6.5.3/mingw_64/include/QtCore/QTime \
   D:/QT67/6.5.3/mingw_64/include/QtCore/q20memory.h \
   D:/QT67/6.5.3/mingw_64/include/QtCore/q20type_traits.h \
   D:/QT67/6.5.3/mingw_64/include/QtCore/qalgorithms.h \
@@ -23,6 +26,7 @@ C:/Users/86135/Desktop/UselessProject/SjjgDesign/sjjgDesign/build/Desktop_Qt_6_5
   D:/QT67/6.5.3/mingw_64/include/QtCore/qbytearrayalgorithms.h \
   D:/QT67/6.5.3/mingw_64/include/QtCore/qbytearraylist.h \
   D:/QT67/6.5.3/mingw_64/include/QtCore/qbytearrayview.h \
+  D:/QT67/6.5.3/mingw_64/include/QtCore/qcalendar.h \
   D:/QT67/6.5.3/mingw_64/include/QtCore/qchar.h \
   D:/QT67/6.5.3/mingw_64/include/QtCore/qcompare.h \
   D:/QT67/6.5.3/mingw_64/include/QtCore/qcompare_impl.h \
@@ -36,6 +40,7 @@ C:/Users/86135/Desktop/UselessProject/SjjgDesign/sjjgDesign/build/Desktop_Qt_6_5
   D:/QT67/6.5.3/mingw_64/include/QtCore/qcoreevent.h \
   D:/QT67/6.5.3/mingw_64/include/QtCore/qdarwinhelpers.h \
   D:/QT67/6.5.3/mingw_64/include/QtCore/qdatastream.h \
+  D:/QT67/6.5.3/mingw_64/include/QtCore/qdatetime.h \
   D:/QT67/6.5.3/mingw_64/include/QtCore/qdebug.h \
   D:/QT67/6.5.3/mingw_64/include/QtCore/qexceptionhandling.h \
   D:/QT67/6.5.3/mingw_64/include/QtCore/qflags.h \
@@ -53,6 +58,7 @@ C:/Users/86135/Desktop/UselessProject/SjjgDesign/sjjgDesign/build/Desktop_Qt_6_5
   D:/QT67/6.5.3/mingw_64/include/QtCore/qiterator.h \
   D:/QT67/6.5.3/mingw_64/include/QtCore/qline.h \
   D:/QT67/6.5.3/mingw_64/include/QtCore/qlist.h \
+  D:/QT67/6.5.3/mingw_64/include/QtCore/qlocale.h \
   D:/QT67/6.5.3/mingw_64/include/QtCore/qlogging.h \
   D:/QT67/6.5.3/mingw_64/include/QtCore/qmalloc.h \
   D:/QT67/6.5.3/mingw_64/include/QtCore/qmap.h \

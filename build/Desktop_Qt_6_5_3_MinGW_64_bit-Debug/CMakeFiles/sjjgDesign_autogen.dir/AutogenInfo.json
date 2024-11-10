@@ -275,6 +275,18 @@
 			"MU",
 			"EWIEGA46WW/moc_rescaleimg.cpp",
 			null
+		],
+		[
+			"C:/Users/86135/Desktop/UselessProject/SjjgDesign/sjjgDesign/threedmaze.h",
+			"MU",
+			"EWIEGA46WW/moc_threedmaze.cpp",
+			null
+		],
+		[
+			"C:/Users/86135/Desktop/UselessProject/SjjgDesign/sjjgDesign/timecount.h",
+			"MU",
+			"EWIEGA46WW/moc_timecount.cpp",
+			null
 		]
 	],
 	"HEADER_EXTENSIONS" : [ "h", "hh", "h++", "hm", "hpp", "hxx", "in", "txx" ],
@@ -369,6 +381,16 @@
 		],
 		[
 			"C:/Users/86135/Desktop/UselessProject/SjjgDesign/sjjgDesign/rescaleimg.cpp",
+			"MU",
+			null
+		],
+		[
+			"C:/Users/86135/Desktop/UselessProject/SjjgDesign/sjjgDesign/threedmaze.cpp",
+			"MU",
+			null
+		],
+		[
+			"C:/Users/86135/Desktop/UselessProject/SjjgDesign/sjjgDesign/timecount.cpp",
 			"MU",
 			null
 		]

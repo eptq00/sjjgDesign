@@ -177,6 +177,19 @@
      <enum>QGraphicsView::DragMode::ScrollHandDrag</enum>
     </property>
    </widget>
+   <widget class="QLabel" name="TimeCNT">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>450</y>
+      <width>91</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
   </widget>
   <widget class="QMenuBar" name="menuBar">
    <property name="geometry">
@@ -205,8 +218,15 @@
      <addaction name="mode11"/>
      <addaction name="mode12"/>
     </widget>
+    <widget class="QMenu" name="menu_4">
+     <property name="title">
+      <string>计时</string>
+     </property>
+     <addaction name="mode21"/>
+     <addaction name="mode22"/>
+    </widget>
     <addaction name="menu_3"/>
-    <addaction name="actionEndless"/>
+    <addaction name="menu_4"/>
    </widget>
    <addaction name="menu"/>
    <addaction name="menu_2"/>
@@ -227,17 +247,22 @@
     <string>Alt+H</string>
    </property>
   </action>
-  <action name="actionEndless">
-   <property name="text">
-    <string>计时</string>
-   </property>
-  </action>
   <action name="mode11">
    <property name="text">
     <string>普通</string>
    </property>
   </action>
   <action name="mode12">
+   <property name="text">
+    <string>内嵌</string>
+   </property>
+  </action>
+  <action name="mode21">
+   <property name="text">
+    <string>普通</string>
+   </property>
+  </action>
+  <action name="mode22">
    <property name="text">
     <string>内嵌</string>
    </property>

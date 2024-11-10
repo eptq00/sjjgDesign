@@ -25,7 +25,9 @@ void Maze::base() {
             this->map[i][j] = 0;
         }
     }
+}
 
+void Maze::baseRecordMap(){
     recordMap = new int*[mazeLevel];
     for (int i = 0; i < mazeLevel; i++) {
         recordMap[i] = new int[mazeLevel];
@@ -176,14 +178,19 @@ QImage Maze::mazeMap(){
     return mazeImage; // 返回生成的迷宫图像
 }
 
-void Maze::autoFindPath(){
+void Maze::autoFindPath(int des_x, int des_y){
+    this->baseRecordMap();
     QList<int> MazeList_x;
     QList<int> MazeList_y;
     int temp_x, temp_y, temp_state;
-    recordMap[this->mazeLevel-2][this->mazeLevel-2]=0;  //出口位置标记为已经访问过,0为墙
-    
-    MazeList_x.push_back(this->mazeLevel-2);    //出口入list
-    MazeList_y.push_back(this->mazeLevel-2);    
+    recordMap[des_x][des_y]=0;  //出口位置标记为已经访问过,0为墙
+    //MazeList_x.clear();
+    //MazeList_y.clear();
+    //autoPath_x.clear();
+    //autoPath_y.clear();
+
+    MazeList_x.push_back(des_x);    //寻路终点入list
+    MazeList_y.push_back(des_y);
     
     int i , j;
     while(!MazeList_x.isEmpty() && !MazeList_x.isEmpty())
@@ -216,7 +223,7 @@ void Maze::autoFindPath(){
             case 3: temp_x = i; temp_y = j - 1; break; // 左
             }
 
-            if(temp_x == 1 && temp_y == 1)
+            if(temp_x == my_x && temp_y == my_y)
             {
                 MazeList_x.push_back(top_x);
                 MazeList_y.push_back(top_y);
@@ -233,6 +240,7 @@ void Maze::autoFindPath(){
                 for (int k = 0; k < MazeList_x.size(); k++) {
                     map[MazeList_x[k]][MazeList_y[k]] = 4;  // 标记为路径
                 }
+                if(des_x == this->mazeLevel - 2 && des_y == this->mazeLevel - 2)
                 map[mazeLevel-2][mazeLevel-1]=4;
                 return;
             }
@@ -255,5 +263,6 @@ void Maze::autoFindPath(){
         }
     }
 }
+
 
 
