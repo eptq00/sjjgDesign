@@ -1,7 +1,12 @@
 C:/Users/86135/Desktop/UselessProject/SjjgDesign/sjjgDesign/build/Desktop_Qt_6_5_3_MinGW_64_bit-Debug/sjjgDesign_autogen/EWIEGA46WW/moc_mainwindow.cpp: C:/Users/86135/Desktop/UselessProject/SjjgDesign/sjjgDesign/mainwindow.h \
   C:/Users/86135/Desktop/UselessProject/SjjgDesign/sjjgDesign/build/Desktop_Qt_6_5_3_MinGW_64_bit-Debug/sjjgDesign_autogen/moc_predefs.h \
+  C:/Users/86135/Desktop/UselessProject/SjjgDesign/sjjgDesign/autopathdes.h \
   C:/Users/86135/Desktop/UselessProject/SjjgDesign/sjjgDesign/maze.h \
   C:/Users/86135/Desktop/UselessProject/SjjgDesign/sjjgDesign/nestmaze.h \
+  C:/Users/86135/Desktop/UselessProject/SjjgDesign/sjjgDesign/questionboxjudge.h \
+  C:/Users/86135/Desktop/UselessProject/SjjgDesign/sjjgDesign/questionboxpoem.h \
+  C:/Users/86135/Desktop/UselessProject/SjjgDesign/sjjgDesign/taskmaze.h \
+  C:/Users/86135/Desktop/UselessProject/SjjgDesign/sjjgDesign/taskpos.h \
   C:/Users/86135/Desktop/UselessProject/SjjgDesign/sjjgDesign/timecount.h \
   D:/QT67/6.5.3/mingw_64/include/QtCore/QList \
   D:/QT67/6.5.3/mingw_64/include/QtCore/QObject \
@@ -10,6 +15,7 @@ C:/Users/86135/Desktop/UselessProject/SjjgDesign/sjjgDesign/build/Desktop_Qt_6_5
   D:/QT67/6.5.3/mingw_64/include/QtCore/QSizeF \
   D:/QT67/6.5.3/mingw_64/include/QtCore/QString \
   D:/QT67/6.5.3/mingw_64/include/QtCore/QTime \
+  D:/QT67/6.5.3/mingw_64/include/QtCore/Qvector \
   D:/QT67/6.5.3/mingw_64/include/QtCore/q20memory.h \
   D:/QT67/6.5.3/mingw_64/include/QtCore/q20type_traits.h \
   D:/QT67/6.5.3/mingw_64/include/QtCore/qalgorithms.h \
@@ -124,6 +130,7 @@ C:/Users/86135/Desktop/UselessProject/SjjgDesign/sjjgDesign/build/Desktop_Qt_6_5
   D:/QT67/6.5.3/mingw_64/include/QtCore/qutf8stringview.h \
   D:/QT67/6.5.3/mingw_64/include/QtCore/qvariant.h \
   D:/QT67/6.5.3/mingw_64/include/QtCore/qvarlengtharray.h \
+  D:/QT67/6.5.3/mingw_64/include/QtCore/qvector.h \
   D:/QT67/6.5.3/mingw_64/include/QtCore/qversiontagging.h \
   D:/QT67/6.5.3/mingw_64/include/QtCore/qxptype_traits.h \
   D:/QT67/6.5.3/mingw_64/include/QtGui/QKeyEvent \
@@ -161,6 +168,7 @@ C:/Users/86135/Desktop/UselessProject/SjjgDesign/sjjgDesign/build/Desktop_Qt_6_5
   D:/QT67/6.5.3/mingw_64/include/QtGui/qwindowdefs.h \
   D:/QT67/6.5.3/mingw_64/include/QtGui/qwindowdefs_win.h \
   D:/QT67/6.5.3/mingw_64/include/QtWidgets/QMainWindow \
+  D:/QT67/6.5.3/mingw_64/include/QtWidgets/QWidget \
   D:/QT67/6.5.3/mingw_64/include/QtWidgets/qmainwindow.h \
   D:/QT67/6.5.3/mingw_64/include/QtWidgets/qsizepolicy.h \
   D:/QT67/6.5.3/mingw_64/include/QtWidgets/qtabwidget.h \

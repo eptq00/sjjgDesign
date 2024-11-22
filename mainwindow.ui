@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>800</width>
-    <height>600</height>
+    <height>597</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -170,7 +170,7 @@
       <x>150</x>
       <y>0</y>
       <width>651</width>
-      <height>601</height>
+      <height>571</height>
      </rect>
     </property>
     <property name="dragMode">
@@ -217,6 +217,7 @@
      </property>
      <addaction name="mode11"/>
      <addaction name="mode12"/>
+     <addaction name="action13"/>
     </widget>
     <widget class="QMenu" name="menu_4">
      <property name="title">
@@ -224,9 +225,17 @@
      </property>
      <addaction name="mode21"/>
      <addaction name="mode22"/>
+     <addaction name="action23"/>
+    </widget>
+    <widget class="QMenu" name="menuf">
+     <property name="title">
+      <string>任务</string>
+     </property>
+     <addaction name="action31"/>
     </widget>
     <addaction name="menu_3"/>
     <addaction name="menu_4"/>
+    <addaction name="menuf"/>
    </widget>
    <addaction name="menu"/>
    <addaction name="menu_2"/>
@@ -265,6 +274,21 @@
   <action name="mode22">
    <property name="text">
     <string>内嵌</string>
+   </property>
+  </action>
+  <action name="action31">
+   <property name="text">
+    <string>普通</string>
+   </property>
+  </action>
+  <action name="action13">
+   <property name="text">
+    <string>立体</string>
+   </property>
+  </action>
+  <action name="action23">
+   <property name="text">
+    <string>立体</string>
    </property>
   </action>
  </widget>

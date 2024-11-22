@@ -245,7 +245,7 @@ void Maze::autoFindPath(int des_x, int des_y){
                 return;
             }
 
-            if (map[temp_x][temp_y] == 1 && recordMap[temp_x][temp_y] == 1) {
+            if (((map[temp_x][temp_y] == 1) || (map[temp_x][temp_y] == 4) || (map[temp_x][temp_y] == 6) || (map[temp_x][temp_y] == 7)) && recordMap[temp_x][temp_y] == 1) {
                 recordMap[temp_x][temp_y] = 0;  // 标记已访问
                 MazeList_x.push_back(top_x);
                 MazeList_y.push_back(top_y);

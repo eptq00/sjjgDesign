@@ -1,5 +1,7 @@
 sjjgDesign_autogen/timestamp: \
 	C:/Users/86135/Desktop/UselessProject/SjjgDesign/sjjgDesign/CMakeLists.txt \
+	C:/Users/86135/Desktop/UselessProject/SjjgDesign/sjjgDesign/autopathdes.cpp \
+	C:/Users/86135/Desktop/UselessProject/SjjgDesign/sjjgDesign/autopathdes.h \
 	C:/Users/86135/Desktop/UselessProject/SjjgDesign/sjjgDesign/build/Desktop_Qt_6_5_3_MinGW_64_bit-Debug/.qtc/package-manager/auto-setup.cmake \
 	C:/Users/86135/Desktop/UselessProject/SjjgDesign/sjjgDesign/build/Desktop_Qt_6_5_3_MinGW_64_bit-Debug/CMakeFiles/3.29.3/CMakeCXXCompiler.cmake \
 	C:/Users/86135/Desktop/UselessProject/SjjgDesign/sjjgDesign/build/Desktop_Qt_6_5_3_MinGW_64_bit-Debug/CMakeFiles/3.29.3/CMakeRCCompiler.cmake \
@@ -12,10 +14,22 @@ sjjgDesign_autogen/timestamp: \
 	C:/Users/86135/Desktop/UselessProject/SjjgDesign/sjjgDesign/maze.h \
 	C:/Users/86135/Desktop/UselessProject/SjjgDesign/sjjgDesign/nestmaze.cpp \
 	C:/Users/86135/Desktop/UselessProject/SjjgDesign/sjjgDesign/nestmaze.h \
+	C:/Users/86135/Desktop/UselessProject/SjjgDesign/sjjgDesign/questionboxjudge.cpp \
+	C:/Users/86135/Desktop/UselessProject/SjjgDesign/sjjgDesign/questionboxjudge.h \
+	C:/Users/86135/Desktop/UselessProject/SjjgDesign/sjjgDesign/questionboxpoem.cpp \
+	C:/Users/86135/Desktop/UselessProject/SjjgDesign/sjjgDesign/questionboxpoem.h \
 	C:/Users/86135/Desktop/UselessProject/SjjgDesign/sjjgDesign/rescaleimg.cpp \
 	C:/Users/86135/Desktop/UselessProject/SjjgDesign/sjjgDesign/rescaleimg.h \
+	C:/Users/86135/Desktop/UselessProject/SjjgDesign/sjjgDesign/taskmaze.cpp \
+	C:/Users/86135/Desktop/UselessProject/SjjgDesign/sjjgDesign/taskmaze.h \
+	C:/Users/86135/Desktop/UselessProject/SjjgDesign/sjjgDesign/taskpos.cpp \
+	C:/Users/86135/Desktop/UselessProject/SjjgDesign/sjjgDesign/taskpos.h \
+	C:/Users/86135/Desktop/UselessProject/SjjgDesign/sjjgDesign/threedmaze.cpp \
+	C:/Users/86135/Desktop/UselessProject/SjjgDesign/sjjgDesign/threedmaze.h \
 	C:/Users/86135/Desktop/UselessProject/SjjgDesign/sjjgDesign/timecount.cpp \
 	C:/Users/86135/Desktop/UselessProject/SjjgDesign/sjjgDesign/timecount.h \
+	C:/Users/86135/Desktop/UselessProject/SjjgDesign/sjjgDesign/transferpos.cpp \
+	C:/Users/86135/Desktop/UselessProject/SjjgDesign/sjjgDesign/transferpos.h \
 	D:/QT67/6.5.3/mingw_64/include/QtCore/QList \
 	D:/QT67/6.5.3/mingw_64/include/QtCore/QObject \
 	D:/QT67/6.5.3/mingw_64/include/QtCore/QRect \
@@ -23,6 +37,7 @@ sjjgDesign_autogen/timestamp: \
 	D:/QT67/6.5.3/mingw_64/include/QtCore/QSizeF \
 	D:/QT67/6.5.3/mingw_64/include/QtCore/QString \
 	D:/QT67/6.5.3/mingw_64/include/QtCore/QTime \
+	D:/QT67/6.5.3/mingw_64/include/QtCore/QVector \
 	D:/QT67/6.5.3/mingw_64/include/QtCore/q20memory.h \
 	D:/QT67/6.5.3/mingw_64/include/QtCore/q20type_traits.h \
 	D:/QT67/6.5.3/mingw_64/include/QtCore/qalgorithms.h \
@@ -137,6 +152,7 @@ sjjgDesign_autogen/timestamp: \
 	D:/QT67/6.5.3/mingw_64/include/QtCore/qutf8stringview.h \
 	D:/QT67/6.5.3/mingw_64/include/QtCore/qvariant.h \
 	D:/QT67/6.5.3/mingw_64/include/QtCore/qvarlengtharray.h \
+	D:/QT67/6.5.3/mingw_64/include/QtCore/qvector.h \
 	D:/QT67/6.5.3/mingw_64/include/QtCore/qversiontagging.h \
 	D:/QT67/6.5.3/mingw_64/include/QtCore/qxptype_traits.h \
 	D:/QT67/6.5.3/mingw_64/include/QtGui/QKeyEvent \
@@ -178,6 +194,7 @@ sjjgDesign_autogen/timestamp: \
 	D:/QT67/6.5.3/mingw_64/include/QtGui/qwindowdefs_win.h \
 	D:/QT67/6.5.3/mingw_64/include/QtWidgets/QGraphicsView \
 	D:/QT67/6.5.3/mingw_64/include/QtWidgets/QMainWindow \
+	D:/QT67/6.5.3/mingw_64/include/QtWidgets/QWidget \
 	D:/QT67/6.5.3/mingw_64/include/QtWidgets/qabstractscrollarea.h \
 	D:/QT67/6.5.3/mingw_64/include/QtWidgets/qframe.h \
 	D:/QT67/6.5.3/mingw_64/include/QtWidgets/qgraphicsscene.h \
@@ -554,5 +571,8 @@ sjjgDesign_autogen/timestamp: \
 	D:/QT67/Tools/mingw1120_64/x86_64-w64-mingw32/include/time.h \
 	D:/QT67/Tools/mingw1120_64/x86_64-w64-mingw32/include/vadefs.h \
 	D:/QT67/Tools/mingw1120_64/x86_64-w64-mingw32/include/wchar.h \
+	C:/Users/86135/Desktop/UselessProject/SjjgDesign/sjjgDesign/autopathdes.ui \
 	C:/Users/86135/Desktop/UselessProject/SjjgDesign/sjjgDesign/mainwindow.ui \
+	C:/Users/86135/Desktop/UselessProject/SjjgDesign/sjjgDesign/questionboxjudge.ui \
+	C:/Users/86135/Desktop/UselessProject/SjjgDesign/sjjgDesign/questionboxpoem.ui \
 	D:/QT67/Tools/CMake_64/bin/cmake.exe

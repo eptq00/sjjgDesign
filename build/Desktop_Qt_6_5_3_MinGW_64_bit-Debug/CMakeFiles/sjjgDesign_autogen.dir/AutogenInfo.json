@@ -253,6 +253,12 @@
 	"HEADERS" : 
 	[
 		[
+			"C:/Users/86135/Desktop/UselessProject/SjjgDesign/sjjgDesign/autopathdes.h",
+			"MU",
+			"EWIEGA46WW/moc_autopathdes.cpp",
+			null
+		],
+		[
 			"C:/Users/86135/Desktop/UselessProject/SjjgDesign/sjjgDesign/mainwindow.h",
 			"MU",
 			"EWIEGA46WW/moc_mainwindow.cpp",
@@ -271,9 +277,33 @@
 			null
 		],
 		[
+			"C:/Users/86135/Desktop/UselessProject/SjjgDesign/sjjgDesign/questionboxjudge.h",
+			"MU",
+			"EWIEGA46WW/moc_questionboxjudge.cpp",
+			null
+		],
+		[
+			"C:/Users/86135/Desktop/UselessProject/SjjgDesign/sjjgDesign/questionboxpoem.h",
+			"MU",
+			"EWIEGA46WW/moc_questionboxpoem.cpp",
+			null
+		],
+		[
 			"C:/Users/86135/Desktop/UselessProject/SjjgDesign/sjjgDesign/rescaleimg.h",
 			"MU",
 			"EWIEGA46WW/moc_rescaleimg.cpp",
+			null
+		],
+		[
+			"C:/Users/86135/Desktop/UselessProject/SjjgDesign/sjjgDesign/taskmaze.h",
+			"MU",
+			"EWIEGA46WW/moc_taskmaze.cpp",
+			null
+		],
+		[
+			"C:/Users/86135/Desktop/UselessProject/SjjgDesign/sjjgDesign/taskpos.h",
+			"MU",
+			"EWIEGA46WW/moc_taskpos.cpp",
 			null
 		],
 		[
@@ -286,6 +316,12 @@
 			"C:/Users/86135/Desktop/UselessProject/SjjgDesign/sjjgDesign/timecount.h",
 			"MU",
 			"EWIEGA46WW/moc_timecount.cpp",
+			null
+		],
+		[
+			"C:/Users/86135/Desktop/UselessProject/SjjgDesign/sjjgDesign/transferpos.h",
+			"MU",
+			"EWIEGA46WW/moc_transferpos.cpp",
 			null
 		]
 	],
@@ -360,6 +396,11 @@
 	"SOURCES" : 
 	[
 		[
+			"C:/Users/86135/Desktop/UselessProject/SjjgDesign/sjjgDesign/autopathdes.cpp",
+			"MU",
+			null
+		],
+		[
 			"C:/Users/86135/Desktop/UselessProject/SjjgDesign/sjjgDesign/main.cpp",
 			"MU",
 			null
@@ -380,7 +421,27 @@
 			null
 		],
 		[
+			"C:/Users/86135/Desktop/UselessProject/SjjgDesign/sjjgDesign/questionboxjudge.cpp",
+			"MU",
+			null
+		],
+		[
+			"C:/Users/86135/Desktop/UselessProject/SjjgDesign/sjjgDesign/questionboxpoem.cpp",
+			"MU",
+			null
+		],
+		[
 			"C:/Users/86135/Desktop/UselessProject/SjjgDesign/sjjgDesign/rescaleimg.cpp",
+			"MU",
+			null
+		],
+		[
+			"C:/Users/86135/Desktop/UselessProject/SjjgDesign/sjjgDesign/taskmaze.cpp",
+			"MU",
+			null
+		],
+		[
+			"C:/Users/86135/Desktop/UselessProject/SjjgDesign/sjjgDesign/taskpos.cpp",
 			"MU",
 			null
 		],
@@ -391,6 +452,11 @@
 		],
 		[
 			"C:/Users/86135/Desktop/UselessProject/SjjgDesign/sjjgDesign/timecount.cpp",
+			"MU",
+			null
+		],
+		[
+			"C:/Users/86135/Desktop/UselessProject/SjjgDesign/sjjgDesign/transferpos.cpp",
 			"MU",
 			null
 		]

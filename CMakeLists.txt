@@ -28,6 +28,14 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
         nestmaze.h nestmaze.cpp
         timecount.h timecount.cpp
         threedmaze.h threedmaze.cpp
+        transferpos.h transferpos.cpp
+        taskmaze.h taskmaze.cpp
+        questionboxjudge.h questionboxjudge.cpp questionboxjudge.ui
+        questionboxpoem.h questionboxpoem.cpp questionboxpoem.ui
+        autopathdes.h autopathdes.cpp autopathdes.ui
+        taskpos.h taskpos.cpp
+
+
 
 
 

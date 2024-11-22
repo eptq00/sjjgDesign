@@ -12,7 +12,7 @@ public:
     virtual ~Maze();
 
     int my_x = 1,my_y = 0;
-    int** map;              //0-墙 1-路 2-人 3-内嵌迷宫
+    int** map;              //0-墙 1-路 2-人 3-内嵌迷宫 4-自动寻路 5-传送门 6-判断题 7-古诗题
     int** recordMap;
     int mazeLevel = 0;
     bool moved;

@@ -5,6 +5,10 @@
 #include "maze.h"
 #include "nestmaze.h"
 #include "timecount.h"
+#include "taskmaze.h"
+#include "autopathdes.h"
+#include "questionboxjudge.h"
+#include "questionboxpoem.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -62,7 +66,11 @@ private slots:
 
     void on_mode22_triggered();
 
-    void on_pushButton_clicked();
+    void on_action13_triggered();
+
+    void on_action23_triggered();
+
+    void on_action31_triggered();
 
 private:
     Ui::MainWindow *ui;
@@ -71,17 +79,23 @@ private:
     QTimer* timer;
     Maze* maze;
     nestMaze* nestmaze;
+    taskMaze* taskmaze;
     bool lock = false;
     int mazeSize = -1;
-    int mode = 1; //1-无尽普通 2-无尽嵌套 3-计时普通
+    int mode = 1; //1-无尽普通 2-无尽嵌套 3-计时普通 4-计时内嵌 5-无尽立体 6-计时立体 7-任务普通
+    autoPathDes* autoPathBox;
+    questionBoxJudge* quesBoxJudge;
+    questionBoxPoem* quesBoxPoem;
     void showMaze(Maze *maze);
     void showNestMaze();
     void showNestCell(nestMaze* nestmaze1);//显示小内嵌迷宫
     void initMaze();
     void initNestMaze();
+    void initTaskMaze();
     void nextLevel(Maze *maze);
     void refresh();
-    void largeNest(nestMaze* nestmaze1);
-    void smallNest(nestMaze* nestmaze1);
+    void largeNest(QImage orimage);
+    void smallNest(QImage orimage);
+    void findPath();
 };
 #endif // MAINWINDOW_H
