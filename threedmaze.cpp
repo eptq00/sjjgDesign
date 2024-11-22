@@ -7,6 +7,7 @@
 threeDMaze::threeDMaze() : Maze() {}
 
 void threeDMaze::base() {
+    int j = 0 ;
     layer = this->mazeLevel/7;
     for(int i=0 ; i<layer ; i++){
         threeDMap = new int**[mazeLevel];
