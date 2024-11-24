@@ -134,10 +134,12 @@ void Maze::createMaze(){
             }
             else//如果栈为空的话就返回，此时迷宫矩阵已经创建完毕
             {
+                this->randomDelete();
                 return;
             }
         }
     }
+
 }
 
 // 生成迷宫地图
@@ -218,9 +220,9 @@ void Maze::autoFindPath(int des_x, int des_y){
             switch(d)
             {
             case 0: temp_x = i - 1; temp_y = j; break; // 上
-            case 1: temp_x = i; temp_y = j + 1; break; // 右
+            case 1: temp_x = i; temp_y = j - 1; break; // 左
             case 2: temp_x = i + 1; temp_y = j; break; // 下
-            case 3: temp_x = i; temp_y = j - 1; break; // 左
+            case 3: temp_x = i; temp_y = j + 1; break; // 右
             }
 
             if(temp_x == my_x && temp_y == my_y)
@@ -264,5 +266,20 @@ void Maze::autoFindPath(int des_x, int des_y){
     }
 }
 
+void Maze::randomDelete(){
+    int x;
+    int y;
+    for(int i=0;i<this->mazeLevel/5;i++){
+        while(true){
+            x=rand()%mazeLevel;
+            y=rand()%mazeLevel;
+            if((map[x][y]==0 && x!=0 && y!=0 && x!=this->mazeLevel-1 && y!=this->mazeLevel-1 && map[x+1][y]==0 && map[x-1][y]==0 && map[x][y+1]!=0 && map[x][y-1]!=0) ||
+                (map[x][y]==0 && x!=0 && y!=0 && x!=this->mazeLevel-1 && y!=this->mazeLevel-1 && map[x][y+1]==0 && map[x][y-1]==0 &&map[x+1][y]!=0 && map[x-1][y]!=0)){
+                map[x][y]=1;
+                break;
+            }
+        }
+    }
+}
 
 

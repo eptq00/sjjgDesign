@@ -18,6 +18,8 @@ sjjgDesign_autogen/timestamp: \
 	C:/Users/86135/Desktop/UselessProject/SjjgDesign/sjjgDesign/questionboxjudge.h \
 	C:/Users/86135/Desktop/UselessProject/SjjgDesign/sjjgDesign/questionboxpoem.cpp \
 	C:/Users/86135/Desktop/UselessProject/SjjgDesign/sjjgDesign/questionboxpoem.h \
+	C:/Users/86135/Desktop/UselessProject/SjjgDesign/sjjgDesign/ranklist.cpp \
+	C:/Users/86135/Desktop/UselessProject/SjjgDesign/sjjgDesign/ranklist.h \
 	C:/Users/86135/Desktop/UselessProject/SjjgDesign/sjjgDesign/rescaleimg.cpp \
 	C:/Users/86135/Desktop/UselessProject/SjjgDesign/sjjgDesign/rescaleimg.h \
 	C:/Users/86135/Desktop/UselessProject/SjjgDesign/sjjgDesign/taskmaze.cpp \
@@ -30,6 +32,10 @@ sjjgDesign_autogen/timestamp: \
 	C:/Users/86135/Desktop/UselessProject/SjjgDesign/sjjgDesign/timecount.h \
 	C:/Users/86135/Desktop/UselessProject/SjjgDesign/sjjgDesign/transferpos.cpp \
 	C:/Users/86135/Desktop/UselessProject/SjjgDesign/sjjgDesign/transferpos.h \
+	C:/Users/86135/Desktop/UselessProject/SjjgDesign/sjjgDesign/userinfo.cpp \
+	C:/Users/86135/Desktop/UselessProject/SjjgDesign/sjjgDesign/userinfo.h \
+	C:/Users/86135/Desktop/UselessProject/SjjgDesign/sjjgDesign/userlogin.cpp \
+	C:/Users/86135/Desktop/UselessProject/SjjgDesign/sjjgDesign/userlogin.h \
 	D:/QT67/6.5.3/mingw_64/include/QtCore/QList \
 	D:/QT67/6.5.3/mingw_64/include/QtCore/QObject \
 	D:/QT67/6.5.3/mingw_64/include/QtCore/QRect \
@@ -575,4 +581,6 @@ sjjgDesign_autogen/timestamp: \
 	C:/Users/86135/Desktop/UselessProject/SjjgDesign/sjjgDesign/mainwindow.ui \
 	C:/Users/86135/Desktop/UselessProject/SjjgDesign/sjjgDesign/questionboxjudge.ui \
 	C:/Users/86135/Desktop/UselessProject/SjjgDesign/sjjgDesign/questionboxpoem.ui \
+	C:/Users/86135/Desktop/UselessProject/SjjgDesign/sjjgDesign/ranklist.ui \
+	C:/Users/86135/Desktop/UselessProject/SjjgDesign/sjjgDesign/userlogin.ui \
 	D:/QT67/Tools/CMake_64/bin/cmake.exe

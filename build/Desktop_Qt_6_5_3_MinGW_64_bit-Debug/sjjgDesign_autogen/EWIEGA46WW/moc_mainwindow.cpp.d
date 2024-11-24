@@ -7,7 +7,11 @@ C:/Users/86135/Desktop/UselessProject/SjjgDesign/sjjgDesign/build/Desktop_Qt_6_5
   C:/Users/86135/Desktop/UselessProject/SjjgDesign/sjjgDesign/questionboxpoem.h \
   C:/Users/86135/Desktop/UselessProject/SjjgDesign/sjjgDesign/taskmaze.h \
   C:/Users/86135/Desktop/UselessProject/SjjgDesign/sjjgDesign/taskpos.h \
+  C:/Users/86135/Desktop/UselessProject/SjjgDesign/sjjgDesign/threedmaze.h \
   C:/Users/86135/Desktop/UselessProject/SjjgDesign/sjjgDesign/timecount.h \
+  C:/Users/86135/Desktop/UselessProject/SjjgDesign/sjjgDesign/transferpos.h \
+  C:/Users/86135/Desktop/UselessProject/SjjgDesign/sjjgDesign/userinfo.h \
+  C:/Users/86135/Desktop/UselessProject/SjjgDesign/sjjgDesign/userlogin.h \
   D:/QT67/6.5.3/mingw_64/include/QtCore/QList \
   D:/QT67/6.5.3/mingw_64/include/QtCore/QObject \
   D:/QT67/6.5.3/mingw_64/include/QtCore/QRect \
@@ -15,6 +19,7 @@ C:/Users/86135/Desktop/UselessProject/SjjgDesign/sjjgDesign/build/Desktop_Qt_6_5
   D:/QT67/6.5.3/mingw_64/include/QtCore/QSizeF \
   D:/QT67/6.5.3/mingw_64/include/QtCore/QString \
   D:/QT67/6.5.3/mingw_64/include/QtCore/QTime \
+  D:/QT67/6.5.3/mingw_64/include/QtCore/QVector \
   D:/QT67/6.5.3/mingw_64/include/QtCore/Qvector \
   D:/QT67/6.5.3/mingw_64/include/QtCore/q20memory.h \
   D:/QT67/6.5.3/mingw_64/include/QtCore/q20type_traits.h \

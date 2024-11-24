@@ -28,6 +28,10 @@ private:
     QString question;
     bool answer;
     bool myAnswer;
+
+signals:
+    void problemTotalPlus();
+    void problemRightPlus();
 };
 
 #endif // QUESTIONBOXJUDGE_H

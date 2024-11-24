@@ -6,6 +6,7 @@
 #include "questionboxjudge.h"
 #include "questionboxpoem.h"
 #include "autopathdes.h"
+#include "userlogin.h"
 #include "taskpos.h"
 #include <QVector>
 #include <QTime>
@@ -18,7 +19,20 @@ MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
 {
+    userLog = new userLogin();
+    userLog->show();
+    connect(userLog,&userLogin::userIsLogin,this,&MainWindow::showWindow);
     ui->setupUi(this);
+    quesBoxJudge = new questionBoxJudge();
+    quesBoxPoem = new questionBoxPoem();
+    connect(quesBoxJudge, &questionBoxJudge::problemTotalPlus, this, &MainWindow::taskTotalPlus);
+    connect(quesBoxJudge, &questionBoxJudge::problemRightPlus, this, &MainWindow::taskRightPlus);
+    connect(quesBoxPoem, &questionBoxPoem::problemTotalPlus, this, &MainWindow::taskTotalPlus);
+    connect(quesBoxPoem, &questionBoxPoem::problemRightPlus, this, &MainWindow::taskRightPlus);
+}
+
+void MainWindow::showWindow(){
+    this->show();
 }
 
 MainWindow::~MainWindow()
@@ -160,6 +174,16 @@ void MainWindow::initTaskMaze(){
     showMaze(taskmaze);
 }
 
+// void MainWindow::init3DMaze(){
+//     threedmaze = new threeDMaze();
+//     threedmaze->base();
+//     threedmaze->setMazeLevel(this->mazeSize);
+//     threedmaze->setLayer(this->mazeSize/7);
+//     threedmaze->create3DMaze();
+//     threedmaze->setTransfer();
+//     showMaze(threedmaze);
+// }
+
 // QGraphicsView上打印迷宫图片
 void MainWindow::showMaze(Maze* maze1){
     QGraphicsScene *scene = new QGraphicsScene;
@@ -223,6 +247,18 @@ void MainWindow::on_mazeBegin_clicked()
                 timer->start();  // 启动计时器
             }
         }
+        // else if(this->mode == 5 || this->mode == 6){
+        //     //this->init3DMaze();
+        //     if(this->mode == 6){
+        //         //添加开始计时逻辑
+        //         timer = new QTimer(this);
+        //         timer->setInterval(100);
+        //         timeCNT->timeStart();
+
+        //         connect(timer, &QTimer::timeout, this, &MainWindow::refresh);
+        //         timer->start();  // 启动计时器
+        //     }
+        // }
         else if(this->mode == 7){
             this->initTaskMaze();
         }
@@ -234,6 +270,11 @@ void MainWindow::refresh(){
         QString time = timeCNT->refreshTime();
         this->ui->TimeCNT->setText("<font color='red'>"+time+"</font>");
     }
+}
+
+void MainWindow::closeEvent(QCloseEvent *event) {
+    userLog->saveUserFile();
+    event->accept();  // 接受关闭事件
 }
 
 // 键盘事件监控函数
@@ -411,13 +452,11 @@ void MainWindow::keyPressEvent(QKeyEvent *event){
                     taskmaze->map[taskmaze->my_x-1][taskmaze->my_y] == 6 ||
                     taskmaze->map[taskmaze->my_x-1][taskmaze->my_y] == 7){
                     if(taskmaze->map[taskmaze->my_x-1][taskmaze->my_y] == 6){
-                        quesBoxJudge = new questionBoxJudge();
                         quesBoxJudge->createJudgeQuestion();
                         quesBoxJudge->setQuestion();
                         quesBoxJudge->show();
                     }
                     else if(taskmaze->map[taskmaze->my_x-1][taskmaze->my_y] == 7){
-                        quesBoxPoem = new questionBoxPoem();
                         quesBoxPoem->createPoemQuestion();
                         quesBoxPoem->setQuestion();
                         quesBoxPoem->show();
@@ -433,13 +472,11 @@ void MainWindow::keyPressEvent(QKeyEvent *event){
                     taskmaze->map[taskmaze->my_x][taskmaze->my_y-1] == 6 ||
                     taskmaze->map[taskmaze->my_x][taskmaze->my_y-1] == 7){
                     if(taskmaze->map[taskmaze->my_x][taskmaze->my_y-1] == 6){
-                        quesBoxJudge = new questionBoxJudge();
                         quesBoxJudge->createJudgeQuestion();
                         quesBoxJudge->setQuestion();
                         quesBoxJudge->show();
                     }
                     else if(taskmaze->map[taskmaze->my_x][taskmaze->my_y-1] == 7){
-                        quesBoxPoem = new questionBoxPoem();
                         quesBoxPoem->createPoemQuestion();
                         quesBoxPoem->setQuestion();
                         quesBoxPoem->show();
@@ -456,13 +493,11 @@ void MainWindow::keyPressEvent(QKeyEvent *event){
                     taskmaze->map[taskmaze->my_x+1][taskmaze->my_y] == 6 ||
                     taskmaze->map[taskmaze->my_x+1][taskmaze->my_y] == 7){
                     if(taskmaze->map[taskmaze->my_x+1][taskmaze->my_y] == 6){
-                        quesBoxJudge = new questionBoxJudge();
                         quesBoxJudge->createJudgeQuestion();
                         quesBoxJudge->setQuestion();
                         quesBoxJudge->show();
                     }
                     else if(taskmaze->map[taskmaze->my_x+1][taskmaze->my_y] == 7){
-                        quesBoxPoem = new questionBoxPoem();
                         quesBoxPoem->createPoemQuestion();
                         quesBoxPoem->setQuestion();
                         quesBoxPoem->show();
@@ -479,13 +514,11 @@ void MainWindow::keyPressEvent(QKeyEvent *event){
                     taskmaze->map[taskmaze->my_x][taskmaze->my_y+1] == 6 ||
                     taskmaze->map[taskmaze->my_x][taskmaze->my_y+1] == 7){
                     if(taskmaze->map[taskmaze->my_x][taskmaze->my_y+1] == 6){
-                        quesBoxJudge = new questionBoxJudge();
                         quesBoxJudge->createJudgeQuestion();
                         quesBoxJudge->setQuestion();
                         quesBoxJudge->show();
                     }
                     else if(taskmaze->map[taskmaze->my_x][taskmaze->my_y+1] == 7){
-                        quesBoxPoem = new questionBoxPoem();
                         quesBoxPoem->createPoemQuestion();
                         quesBoxPoem->setQuestion();
                         quesBoxPoem->show();
@@ -547,20 +580,24 @@ void MainWindow::nextLevel(Maze* maze1){
     if(maze1->map[maze1->mazeLevel-2][maze1->mazeLevel-1]==2){
         //通关逻辑
         if(this->mode == 1){
+            userLog->usercurrent->levelPutong++;
             initMaze();
         }
         else if(this->mode == 2){
+            userLog->usercurrent->levelNeiqian++;
             initNestMaze();
         }
         else if(this->mode == 3){
             timer->stop();
             timeCNT->timeEnd();
+            userLog->usercurrent->timePutong = timeCNT->getTime();
             //不再接受键盘信号
             lock = true;
         }
         else if(this->mode == 4){
             timer->stop();
             timeCNT->timeEnd();
+            userLog->usercurrent->timeNeiqian = timeCNT->getTime();
             //不再接受键盘信号
             lock = true;
         }
@@ -664,9 +701,15 @@ void MainWindow::findPath(){
     }
 }
 
+void MainWindow::taskTotalPlus(){
+    userLog->usercurrent->taskTotal++;
+}
 
-
-
+void MainWindow::taskRightPlus(){
+    userLog->usercurrent->taskRight++;
+    userLog->usercurrent->taskAccu = (double)userLog->usercurrent->taskRight / userLog->usercurrent->taskTotal;
+    qDebug()<<"你的准确率是："<<userLog->usercurrent->taskAccu;
+}
 
 void MainWindow::on_action31_triggered()
 {

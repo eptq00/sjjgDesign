@@ -161,6 +161,30 @@ build CMakeFiles/sjjgDesign.dir/taskpos.cpp.obj: CXX_COMPILER__sjjgDesign_unscan
   OBJECT_DIR = CMakeFiles\sjjgDesign.dir
   OBJECT_FILE_DIR = CMakeFiles\sjjgDesign.dir
 
+build CMakeFiles/sjjgDesign.dir/userlogin.cpp.obj: CXX_COMPILER__sjjgDesign_unscanned_Debug C$:/Users/86135/Desktop/UselessProject/SjjgDesign/sjjgDesign/userlogin.cpp || cmake_object_order_depends_target_sjjgDesign
+  DEFINES = -DMINGW_HAS_SECURE_API=1 -DQT_CORE_LIB -DQT_GUI_LIB -DQT_NEEDS_QMAIN -DQT_WIDGETS_LIB -DUNICODE -DWIN32 -DWIN64 -D_ENABLE_EXTENDED_ALIGNED_STORAGE -D_UNICODE -D_WIN64
+  DEP_FILE = CMakeFiles\sjjgDesign.dir\userlogin.cpp.obj.d
+  FLAGS = -DQT_QML_DEBUG -g -std=gnu++17 -fdiagnostics-color=always
+  INCLUDES = -IC:/Users/86135/Desktop/UselessProject/SjjgDesign/sjjgDesign/build/Desktop_Qt_6_5_3_MinGW_64_bit-Debug/sjjgDesign_autogen/include -isystem D:/QT67/6.5.3/mingw_64/include/QtCore -isystem D:/QT67/6.5.3/mingw_64/include -isystem D:/QT67/6.5.3/mingw_64/mkspecs/win32-g++ -isystem D:/QT67/6.5.3/mingw_64/include/QtWidgets -isystem D:/QT67/6.5.3/mingw_64/include/QtGui
+  OBJECT_DIR = CMakeFiles\sjjgDesign.dir
+  OBJECT_FILE_DIR = CMakeFiles\sjjgDesign.dir
+
+build CMakeFiles/sjjgDesign.dir/userinfo.cpp.obj: CXX_COMPILER__sjjgDesign_unscanned_Debug C$:/Users/86135/Desktop/UselessProject/SjjgDesign/sjjgDesign/userinfo.cpp || cmake_object_order_depends_target_sjjgDesign
+  DEFINES = -DMINGW_HAS_SECURE_API=1 -DQT_CORE_LIB -DQT_GUI_LIB -DQT_NEEDS_QMAIN -DQT_WIDGETS_LIB -DUNICODE -DWIN32 -DWIN64 -D_ENABLE_EXTENDED_ALIGNED_STORAGE -D_UNICODE -D_WIN64
+  DEP_FILE = CMakeFiles\sjjgDesign.dir\userinfo.cpp.obj.d
+  FLAGS = -DQT_QML_DEBUG -g -std=gnu++17 -fdiagnostics-color=always
+  INCLUDES = -IC:/Users/86135/Desktop/UselessProject/SjjgDesign/sjjgDesign/build/Desktop_Qt_6_5_3_MinGW_64_bit-Debug/sjjgDesign_autogen/include -isystem D:/QT67/6.5.3/mingw_64/include/QtCore -isystem D:/QT67/6.5.3/mingw_64/include -isystem D:/QT67/6.5.3/mingw_64/mkspecs/win32-g++ -isystem D:/QT67/6.5.3/mingw_64/include/QtWidgets -isystem D:/QT67/6.5.3/mingw_64/include/QtGui
+  OBJECT_DIR = CMakeFiles\sjjgDesign.dir
+  OBJECT_FILE_DIR = CMakeFiles\sjjgDesign.dir
+
+build CMakeFiles/sjjgDesign.dir/ranklist.cpp.obj: CXX_COMPILER__sjjgDesign_unscanned_Debug C$:/Users/86135/Desktop/UselessProject/SjjgDesign/sjjgDesign/ranklist.cpp || cmake_object_order_depends_target_sjjgDesign
+  DEFINES = -DMINGW_HAS_SECURE_API=1 -DQT_CORE_LIB -DQT_GUI_LIB -DQT_NEEDS_QMAIN -DQT_WIDGETS_LIB -DUNICODE -DWIN32 -DWIN64 -D_ENABLE_EXTENDED_ALIGNED_STORAGE -D_UNICODE -D_WIN64
+  DEP_FILE = CMakeFiles\sjjgDesign.dir\ranklist.cpp.obj.d
+  FLAGS = -DQT_QML_DEBUG -g -std=gnu++17 -fdiagnostics-color=always
+  INCLUDES = -IC:/Users/86135/Desktop/UselessProject/SjjgDesign/sjjgDesign/build/Desktop_Qt_6_5_3_MinGW_64_bit-Debug/sjjgDesign_autogen/include -isystem D:/QT67/6.5.3/mingw_64/include/QtCore -isystem D:/QT67/6.5.3/mingw_64/include -isystem D:/QT67/6.5.3/mingw_64/mkspecs/win32-g++ -isystem D:/QT67/6.5.3/mingw_64/include/QtWidgets -isystem D:/QT67/6.5.3/mingw_64/include/QtGui
+  OBJECT_DIR = CMakeFiles\sjjgDesign.dir
+  OBJECT_FILE_DIR = CMakeFiles\sjjgDesign.dir
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target sjjgDesign
@@ -169,7 +193,7 @@ build CMakeFiles/sjjgDesign.dir/taskpos.cpp.obj: CXX_COMPILER__sjjgDesign_unscan
 #############################################
 # Link the executable sjjgDesign.exe
 
-build sjjgDesign.exe: CXX_EXECUTABLE_LINKER__sjjgDesign_Debug CMakeFiles/sjjgDesign.dir/sjjgDesign_autogen/mocs_compilation.cpp.obj CMakeFiles/sjjgDesign.dir/main.cpp.obj CMakeFiles/sjjgDesign.dir/mainwindow.cpp.obj CMakeFiles/sjjgDesign.dir/maze.cpp.obj CMakeFiles/sjjgDesign.dir/rescaleimg.cpp.obj CMakeFiles/sjjgDesign.dir/nestmaze.cpp.obj CMakeFiles/sjjgDesign.dir/timecount.cpp.obj CMakeFiles/sjjgDesign.dir/threedmaze.cpp.obj CMakeFiles/sjjgDesign.dir/transferpos.cpp.obj CMakeFiles/sjjgDesign.dir/taskmaze.cpp.obj CMakeFiles/sjjgDesign.dir/questionboxjudge.cpp.obj CMakeFiles/sjjgDesign.dir/questionboxpoem.cpp.obj CMakeFiles/sjjgDesign.dir/autopathdes.cpp.obj CMakeFiles/sjjgDesign.dir/taskpos.cpp.obj | D$:/QT67/6.5.3/mingw_64/lib/libQt6Widgets.a D$:/QT67/6.5.3/mingw_64/lib/libQt6Gui.a D$:/QT67/6.5.3/mingw_64/lib/libQt6Core.a D$:/QT67/6.5.3/mingw_64/lib/libQt6EntryPoint.a || sjjgDesign_autogen sjjgDesign_autogen_timestamp_deps
+build sjjgDesign.exe: CXX_EXECUTABLE_LINKER__sjjgDesign_Debug CMakeFiles/sjjgDesign.dir/sjjgDesign_autogen/mocs_compilation.cpp.obj CMakeFiles/sjjgDesign.dir/main.cpp.obj CMakeFiles/sjjgDesign.dir/mainwindow.cpp.obj CMakeFiles/sjjgDesign.dir/maze.cpp.obj CMakeFiles/sjjgDesign.dir/rescaleimg.cpp.obj CMakeFiles/sjjgDesign.dir/nestmaze.cpp.obj CMakeFiles/sjjgDesign.dir/timecount.cpp.obj CMakeFiles/sjjgDesign.dir/threedmaze.cpp.obj CMakeFiles/sjjgDesign.dir/transferpos.cpp.obj CMakeFiles/sjjgDesign.dir/taskmaze.cpp.obj CMakeFiles/sjjgDesign.dir/questionboxjudge.cpp.obj CMakeFiles/sjjgDesign.dir/questionboxpoem.cpp.obj CMakeFiles/sjjgDesign.dir/autopathdes.cpp.obj CMakeFiles/sjjgDesign.dir/taskpos.cpp.obj CMakeFiles/sjjgDesign.dir/userlogin.cpp.obj CMakeFiles/sjjgDesign.dir/userinfo.cpp.obj CMakeFiles/sjjgDesign.dir/ranklist.cpp.obj | D$:/QT67/6.5.3/mingw_64/lib/libQt6Widgets.a D$:/QT67/6.5.3/mingw_64/lib/libQt6Gui.a D$:/QT67/6.5.3/mingw_64/lib/libQt6Core.a D$:/QT67/6.5.3/mingw_64/lib/libQt6EntryPoint.a || sjjgDesign_autogen sjjgDesign_autogen_timestamp_deps
   FLAGS = -DQT_QML_DEBUG -g
   LINK_FLAGS = -mwindows
   LINK_LIBRARIES = D:/QT67/6.5.3/mingw_64/lib/libQt6Widgets.a  D:/QT67/6.5.3/mingw_64/lib/libQt6Gui.a  D:/QT67/6.5.3/mingw_64/lib/libQt6Core.a  -lmpr  -luserenv  -lmingw32  D:/QT67/6.5.3/mingw_64/lib/libQt6EntryPoint.a  -lshell32  -ld3d11  -ldxgi  -ldxguid  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
@@ -256,7 +280,7 @@ build sjjgDesign_autogen_timestamp_deps: phony
 #############################################
 # Utility command for sjjgDesign_autogen
 
-build sjjgDesign_autogen: phony CMakeFiles/sjjgDesign_autogen sjjgDesign_autogen/include/ui_mainwindow.h sjjgDesign_autogen/include/ui_questionboxjudge.h sjjgDesign_autogen/include/ui_questionboxpoem.h sjjgDesign_autogen/include/ui_autopathdes.h sjjgDesign_autogen/timestamp sjjgDesign_autogen/mocs_compilation.cpp sjjgDesign_autogen_timestamp_deps
+build sjjgDesign_autogen: phony CMakeFiles/sjjgDesign_autogen sjjgDesign_autogen/include/ui_mainwindow.h sjjgDesign_autogen/include/ui_questionboxjudge.h sjjgDesign_autogen/include/ui_questionboxpoem.h sjjgDesign_autogen/include/ui_autopathdes.h sjjgDesign_autogen/include/ui_userlogin.h sjjgDesign_autogen/include/ui_ranklist.h sjjgDesign_autogen/timestamp sjjgDesign_autogen/mocs_compilation.cpp sjjgDesign_autogen_timestamp_deps
 
 
 #############################################
@@ -273,7 +297,7 @@ build sjjgDesign_autogen/timestamp sjjgDesign_autogen/mocs_compilation.cpp | ${c
 #############################################
 # Phony custom command for CMakeFiles\sjjgDesign_autogen
 
-build CMakeFiles/sjjgDesign_autogen sjjgDesign_autogen/include/ui_mainwindow.h sjjgDesign_autogen/include/ui_questionboxjudge.h sjjgDesign_autogen/include/ui_questionboxpoem.h sjjgDesign_autogen/include/ui_autopathdes.h | ${cmake_ninja_workdir}CMakeFiles/sjjgDesign_autogen ${cmake_ninja_workdir}sjjgDesign_autogen/include/ui_mainwindow.h ${cmake_ninja_workdir}sjjgDesign_autogen/include/ui_questionboxjudge.h ${cmake_ninja_workdir}sjjgDesign_autogen/include/ui_questionboxpoem.h ${cmake_ninja_workdir}sjjgDesign_autogen/include/ui_autopathdes.h: phony sjjgDesign_autogen/timestamp || sjjgDesign_autogen_timestamp_deps
+build CMakeFiles/sjjgDesign_autogen sjjgDesign_autogen/include/ui_mainwindow.h sjjgDesign_autogen/include/ui_questionboxjudge.h sjjgDesign_autogen/include/ui_questionboxpoem.h sjjgDesign_autogen/include/ui_autopathdes.h sjjgDesign_autogen/include/ui_userlogin.h sjjgDesign_autogen/include/ui_ranklist.h | ${cmake_ninja_workdir}CMakeFiles/sjjgDesign_autogen ${cmake_ninja_workdir}sjjgDesign_autogen/include/ui_mainwindow.h ${cmake_ninja_workdir}sjjgDesign_autogen/include/ui_questionboxjudge.h ${cmake_ninja_workdir}sjjgDesign_autogen/include/ui_questionboxpoem.h ${cmake_ninja_workdir}sjjgDesign_autogen/include/ui_autopathdes.h ${cmake_ninja_workdir}sjjgDesign_autogen/include/ui_userlogin.h ${cmake_ninja_workdir}sjjgDesign_autogen/include/ui_ranklist.h: phony sjjgDesign_autogen/timestamp || sjjgDesign_autogen_timestamp_deps
 
 # =============================================================================
 # Target aliases.

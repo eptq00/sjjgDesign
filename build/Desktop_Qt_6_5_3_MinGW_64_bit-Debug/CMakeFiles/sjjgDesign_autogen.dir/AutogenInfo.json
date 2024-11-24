@@ -289,6 +289,12 @@
 			null
 		],
 		[
+			"C:/Users/86135/Desktop/UselessProject/SjjgDesign/sjjgDesign/ranklist.h",
+			"MU",
+			"EWIEGA46WW/moc_ranklist.cpp",
+			null
+		],
+		[
 			"C:/Users/86135/Desktop/UselessProject/SjjgDesign/sjjgDesign/rescaleimg.h",
 			"MU",
 			"EWIEGA46WW/moc_rescaleimg.cpp",
@@ -322,6 +328,18 @@
 			"C:/Users/86135/Desktop/UselessProject/SjjgDesign/sjjgDesign/transferpos.h",
 			"MU",
 			"EWIEGA46WW/moc_transferpos.cpp",
+			null
+		],
+		[
+			"C:/Users/86135/Desktop/UselessProject/SjjgDesign/sjjgDesign/userinfo.h",
+			"MU",
+			"EWIEGA46WW/moc_userinfo.cpp",
+			null
+		],
+		[
+			"C:/Users/86135/Desktop/UselessProject/SjjgDesign/sjjgDesign/userlogin.h",
+			"MU",
+			"EWIEGA46WW/moc_userlogin.cpp",
 			null
 		]
 	],
@@ -431,6 +449,11 @@
 			null
 		],
 		[
+			"C:/Users/86135/Desktop/UselessProject/SjjgDesign/sjjgDesign/ranklist.cpp",
+			"MU",
+			null
+		],
+		[
 			"C:/Users/86135/Desktop/UselessProject/SjjgDesign/sjjgDesign/rescaleimg.cpp",
 			"MU",
 			null
@@ -457,6 +480,16 @@
 		],
 		[
 			"C:/Users/86135/Desktop/UselessProject/SjjgDesign/sjjgDesign/transferpos.cpp",
+			"MU",
+			null
+		],
+		[
+			"C:/Users/86135/Desktop/UselessProject/SjjgDesign/sjjgDesign/userinfo.cpp",
+			"MU",
+			null
+		],
+		[
+			"C:/Users/86135/Desktop/UselessProject/SjjgDesign/sjjgDesign/userlogin.cpp",
 			"MU",
 			null
 		]

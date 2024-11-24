@@ -83,7 +83,9 @@ bool questionBoxJudge::judgeJudge(){
 void questionBoxJudge::on_trueButton_clicked()
 {
     this->myAnswer = true;
+    emit problemTotalPlus();
     if(this->judgeJudge()){
+        emit problemRightPlus();
         hide();
     }
     else{
@@ -96,7 +98,10 @@ void questionBoxJudge::on_trueButton_clicked()
 void questionBoxJudge::on_falseButton_clicked()
 {
     this->myAnswer = false;
+
+    emit problemTotalPlus();
     if(this->judgeJudge()){
+        emit problemRightPlus();
         hide();
     }
     else{

@@ -10,6 +10,7 @@ public:
     void timeStart();
     QString refreshTime();
     void timeEnd();
+    double getTime();
 private:
     QTime startTime;
 };

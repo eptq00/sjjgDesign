@@ -20,3 +20,7 @@ void TimeCount::timeEnd(){
     double elapsedSeconds = startTime.msecsTo(QTime::currentTime()) / 1000.0;
     qDebug() << "经过的时间:" << elapsedSeconds<<"s";
 }
+
+double TimeCount::getTime(){
+    return startTime.msecsTo(QTime::currentTime()) / 1000.0;
+}

@@ -29,6 +29,7 @@ protected:
     void resetDir(bool* up, bool* down, bool* left, bool* right);
     virtual void base();//生成基础单元格
     void baseRecordMap();
+    void randomDelete();
 };
 
 #endif // MAZE_H

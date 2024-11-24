@@ -6,9 +6,12 @@
 #include "nestmaze.h"
 #include "timecount.h"
 #include "taskmaze.h"
+#include "threedmaze.h"
 #include "autopathdes.h"
 #include "questionboxjudge.h"
 #include "questionboxpoem.h"
+#include "userlogin.h"
+#include "userinfo.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -24,6 +27,7 @@ public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
     void keyPressEvent(QKeyEvent *event);
+    void closeEvent(QCloseEvent *event);
 
 private slots:
     void on_mazeSize1_clicked();
@@ -72,6 +76,12 @@ private slots:
 
     void on_action31_triggered();
 
+    void showWindow();
+
+    void taskTotalPlus();
+
+    void taskRightPlus();
+
 private:
     Ui::MainWindow *ui;
     QString expression;
@@ -80,22 +90,27 @@ private:
     Maze* maze;
     nestMaze* nestmaze;
     taskMaze* taskmaze;
+    threeDMaze* threedmaze;
+    userInfo* user_my;
     bool lock = false;
     int mazeSize = -1;
     int mode = 1; //1-无尽普通 2-无尽嵌套 3-计时普通 4-计时内嵌 5-无尽立体 6-计时立体 7-任务普通
     autoPathDes* autoPathBox;
     questionBoxJudge* quesBoxJudge;
     questionBoxPoem* quesBoxPoem;
+    userLogin* userLog;
     void showMaze(Maze *maze);
     void showNestMaze();
     void showNestCell(nestMaze* nestmaze1);//显示小内嵌迷宫
     void initMaze();
     void initNestMaze();
     void initTaskMaze();
+    void init3DMaze();
     void nextLevel(Maze *maze);
     void refresh();
     void largeNest(QImage orimage);
     void smallNest(QImage orimage);
     void findPath();
+
 };
 #endif // MAINWINDOW_H

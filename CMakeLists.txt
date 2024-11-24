@@ -34,6 +34,9 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
         questionboxpoem.h questionboxpoem.cpp questionboxpoem.ui
         autopathdes.h autopathdes.cpp autopathdes.ui
         taskpos.h taskpos.cpp
+        userlogin.h userlogin.cpp userlogin.ui
+        userinfo.h userinfo.cpp
+        ranklist.h ranklist.cpp ranklist.ui
 
 
 

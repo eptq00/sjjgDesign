@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>rankList</class>
+ <widget class="QWidget" name="rankList">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>319</width>
+    <height>462</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <widget class="QTextBrowser" name="textBrowser">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>60</y>
+     <width>281</width>
+     <height>391</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QScrollBar" name="verticalScrollBar">
+   <property name="geometry">
+    <rect>
+     <x>280</x>
+     <y>60</y>
+     <width>16</width>
+     <height>391</height>
+    </rect>
+   </property>
+   <property name="orientation">
+    <enum>Qt::Orientation::Vertical</enum>
+   </property>
+  </widget>
+  <widget class="QComboBox" name="comboBox">
+   <property name="geometry">
+    <rect>
+     <x>110</x>
+     <y>20</y>
+     <width>83</width>
+     <height>25</height>
+    </rect>
+   </property>
+   <item>
+    <property name="text">
+     <string>请选择</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>做题数</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>准确率</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>段位</string>
+    </property>
+   </item>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

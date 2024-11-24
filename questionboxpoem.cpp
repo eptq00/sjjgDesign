@@ -84,7 +84,9 @@ bool questionBoxPoem::judgePoem(){
 void questionBoxPoem::on_sureButton_clicked()
 {
     this->myAnswer = ui->answerEdit->text();
+    emit problemTotalPlus();
     if(this->judgePoem()){
+        emit problemRightPlus();
         hide();
     }
     else{

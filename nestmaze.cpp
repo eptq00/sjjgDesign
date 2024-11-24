@@ -139,6 +139,7 @@ void nestMaze::createNestMaze(){
             }
             else//如果栈为空的话就返回，此时迷宫矩阵已经创建完毕
             {
+                this->randomDelete();
                 return;
             }
         }

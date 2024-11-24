@@ -26,6 +26,10 @@ private:
     QString question;
     QString answer;
     QString myAnswer;
+
+signals:
+    void problemTotalPlus();
+    void problemRightPlus();
 };
 
 #endif // QUESTIONBOXPOEM_H

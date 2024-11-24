@@ -3,12 +3,12 @@
 #include <QVector>
 #include <QPainter>
 #include <QDebug>
+#include <QStack>
 
 threeDMaze::threeDMaze() : Maze() {}
 
 void threeDMaze::base() {
     int j = 0 ;
-    layer = this->mazeLevel/7;
     for(int i=0 ; i<layer ; i++){
         threeDMap = new int**[mazeLevel];
         for (int j = 0; j < mazeLevel; j++) {
@@ -23,8 +23,11 @@ void threeDMaze::base() {
     }
 }
 
+void threeDMaze::setLayer(int layer){
+    this->layer=layer;
+}
+
 void threeDMaze::create3DMaze(){
-    threeDMaze::base();
     for(int i=0 ; i<layer ; i++){
         this->createMaze();
         for(int x=0;x<mazeLevel;x++){
@@ -45,6 +48,93 @@ void threeDMaze::create3DMaze(){
     }
 }
 
+// void threeDMaze::createMaze(){
+//     this->start_x = 1;
+//     this->start_y = 1;
+//     this->map[this->start_x][this->start_y]=1;
+//     int currpoint_x = start_x, currpoint_y = start_y;
+//     bool up=false, down=false, left=false, right=false;
+//     QStack<int> MazeStack_x;
+//     QStack<int> MazeStack_y;
+//     this->map[1][0]=2;
+//     this->map[mazeLevel-2][mazeLevel-1]=1;
+//     while(true){
+//         int ranNum=rand()%4;
+//         switch(ranNum){
+//         case 0://上
+//             if(!up && currpoint_x>2 && this->map[currpoint_x-2][currpoint_y] == 0){
+//                 MazeStack_x.push(currpoint_x);
+//                 MazeStack_y.push(currpoint_y);
+//                 this->map[currpoint_x-2][currpoint_y] = 1;
+//                 this->map[currpoint_x-1][currpoint_y] = 1;
+//                 currpoint_x = currpoint_x - 2;
+//                 this->resetDir(&up,&down,&left,&right);
+//             }
+//             else{
+//                 up=true;
+//             }
+//             break;
+//         case 1://下
+//             if(!down && currpoint_x<mazeLevel-3 && this->map[currpoint_x+2][currpoint_y] == 0){
+//                 MazeStack_x.push(currpoint_x);
+//                 MazeStack_y.push(currpoint_y);
+//                 this->map[currpoint_x+2][currpoint_y] = 1;
+//                 this->map[currpoint_x+1][currpoint_y] = 1;
+//                 currpoint_x = currpoint_x + 2;
+//                 this->resetDir(&up,&down,&left,&right);
+//             }
+//             else{
+//                 down=true;
+//             }
+//             break;
+//         case 2://左
+//             if(!left && currpoint_y>2 && this->map[currpoint_x][currpoint_y-2] == 0){
+//                 MazeStack_x.push(currpoint_x);
+//                 MazeStack_y.push(currpoint_y);
+//                 this->map[currpoint_x][currpoint_y-2] = 1;
+//                 this->map[currpoint_x][currpoint_y-1] = 1;
+//                 currpoint_y = currpoint_y - 2;
+//                 this->resetDir(&up,&down,&left,&right);
+//             }
+//             else{
+//                 left=true;
+//             }
+//             break;
+//         case 3://右
+//             if(!right && currpoint_y<mazeLevel-3 && this->map[currpoint_x][currpoint_y+2] == 0){
+//                 MazeStack_x.push(currpoint_x);
+//                 MazeStack_y.push(currpoint_y);
+//                 this->map[currpoint_x][currpoint_y+2] = 1;
+//                 this->map[currpoint_x][currpoint_y+1] = 1;
+//                 currpoint_y = currpoint_y + 2;
+//                 this->resetDir(&up,&down,&left,&right);
+//             }
+//             else{
+//                 right=true;
+//             }
+//             break;
+//         default: break;
+//         }
+//         if(up&&down&&right&&left)//如果当前访问节点四个方向都没有可拆的节点，回溯
+//         {
+//             if(!MazeStack_x.empty() && !MazeStack_y.empty())
+//             {
+//                 currpoint_x = MazeStack_x.top();
+//                 currpoint_y = MazeStack_y.top();
+//                 MazeStack_x.pop();
+//                 MazeStack_y.pop();
+//                 this->resetDir(&up,&down,&left,&right);
+//             }
+//             else//如果栈为空的话就返回，此时迷宫矩阵已经创建完毕
+//             {
+//                 this->randomDelete();
+//                 return;
+//             }
+//         }
+//     }
+
+// }
+
 void threeDMaze::setTransfer(){
     for (int i=0;i<layer-2 ;i++){
         transferPos* pos = new transferPos();
@@ -52,16 +142,17 @@ void threeDMaze::setTransfer(){
             pos->trans_x=rand()%mazeLevel;
             pos->trans_y=rand()%mazeLevel;
             if(threeDMap[i][pos->trans_x][pos->trans_y] == 1 && threeDMap[i+1][pos->trans_x][pos->trans_y] == 1){
-                threeDMap[i][pos->trans_x][pos->trans_y] = 5;
-                threeDMap[i+1][pos->trans_x][pos->trans_y] = 5;
+                threeDMap[i][pos->trans_x][pos->trans_y] = 5; //上层到下层-5
+                threeDMap[i+1][pos->trans_x][pos->trans_y] = 8; // 下层到上层-8
                 // 把第i和第i+1层的传送门坐标存放在transfers[i]处
-                transfers.push_back(pos);
+                transfersup.append(pos);
+                transfersdown.append(pos);
                 break;
             }
         }
     }
-    for (int i = 0; i<transfers.length();i++){
-        qDebug() <<"("<<transfers[i]->trans_x<<","<<transfers[i]->trans_y<<")";
+    for (int i = 0; i<transfersup.length();i++){
+        qDebug() <<"("<<transfersup[i]->trans_x<<","<<transfersup[i]->trans_y<<")";
     }
 }
 
@@ -70,12 +161,14 @@ QImage threeDMaze::mazeMap(){
     QImage mazeRoad(10,10,QImage::Format_RGB888);
     QImage mazeMy(10,10,QImage::Format_RGB888);
     QImage mazeTip(10,10,QImage::Format_RGB888);
-    QImage mazeTrans(10,10,QImage::Format_RGB888);
+    QImage mazeTransup(10,10,QImage::Format_RGB888);
+    QImage mazeTransdown(10,10,QImage::Format_RGB888);
     mazeWall.fill(QColor(Qt::black));
     mazeRoad.fill(QColor(Qt::white));
     mazeMy.fill(QColor(Qt::green));
     mazeTip.fill(QColor(Qt::yellow));
-    mazeTrans.fill(QColor(Qt::blue));
+    mazeTransup.fill(QColor(0,0,255));
+    mazeTransdown.fill(QColor(135,206,250));
 
     // 创建一个新的QImage对象，大小为迷宫的宽度和高度
     QImage mazeImage(mazeLevel * 10, mazeLevel * 10, QImage::Format_ARGB32);
@@ -100,7 +193,10 @@ QImage threeDMaze::mazeMap(){
                 painter.drawImage(col * 10, row * 10, mazeTip);
             }
             else if(threeDMap[my_z][row][col] == 5) {
-                painter.drawImage(col * 10, row * 10, mazeTrans);
+                painter.drawImage(col * 10, row * 10, mazeTransup);
+            }
+            else if(threeDMap[my_z][row][col] == 8) {
+                painter.drawImage(col * 10, row * 10, mazeTransdown);
             }
         }
     }
