@@ -12,6 +12,7 @@
 #include "questionboxpoem.h"
 #include "userlogin.h"
 #include "userinfo.h"
+#include "ranklist.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -82,6 +83,8 @@ private slots:
 
     void taskRightPlus();
 
+    void on_actionRanklist_triggered();
+
 private:
     Ui::MainWindow *ui;
     QString expression;
@@ -99,6 +102,7 @@ private:
     questionBoxJudge* quesBoxJudge;
     questionBoxPoem* quesBoxPoem;
     userLogin* userLog;
+    rankList* ranklist;
     void showMaze(Maze *maze);
     void showNestMaze();
     void showNestCell(nestMaze* nestmaze1);//显示小内嵌迷宫

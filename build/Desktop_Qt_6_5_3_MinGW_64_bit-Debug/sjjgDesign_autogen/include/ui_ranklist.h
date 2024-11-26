@@ -42,6 +42,7 @@ public:
         comboBox->addItem(QString());
         comboBox->addItem(QString());
         comboBox->addItem(QString());
+        comboBox->addItem(QString());
         comboBox->setObjectName("comboBox");
         comboBox->setGeometry(QRect(110, 20, 83, 25));
 
@@ -55,8 +56,9 @@ public:
         rankList->setWindowTitle(QCoreApplication::translate("rankList", "Form", nullptr));
         comboBox->setItemText(0, QCoreApplication::translate("rankList", "\350\257\267\351\200\211\346\213\251", nullptr));
         comboBox->setItemText(1, QCoreApplication::translate("rankList", "\345\201\232\351\242\230\346\225\260", nullptr));
-        comboBox->setItemText(2, QCoreApplication::translate("rankList", "\345\207\206\347\241\256\347\216\207", nullptr));
-        comboBox->setItemText(3, QCoreApplication::translate("rankList", "\346\256\265\344\275\215", nullptr));
+        comboBox->setItemText(2, QCoreApplication::translate("rankList", "\346\255\243\347\241\256\346\225\260", nullptr));
+        comboBox->setItemText(3, QCoreApplication::translate("rankList", "\345\207\206\347\241\256\347\216\207", nullptr));
+        comboBox->setItemText(4, QCoreApplication::translate("rankList", "\346\256\265\344\275\215", nullptr));
 
     } // retranslateUi
 

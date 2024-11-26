@@ -206,6 +206,7 @@
     </property>
     <addaction name="actionGame"/>
     <addaction name="actionHelp"/>
+    <addaction name="actionRanklist"/>
    </widget>
    <widget class="QMenu" name="menu_2">
     <property name="title">
@@ -289,6 +290,11 @@
   <action name="action23">
    <property name="text">
     <string>立体</string>
+   </property>
+  </action>
+  <action name="actionRanklist">
+   <property name="text">
+    <string>Ranklist</string>
    </property>
   </action>
  </widget>

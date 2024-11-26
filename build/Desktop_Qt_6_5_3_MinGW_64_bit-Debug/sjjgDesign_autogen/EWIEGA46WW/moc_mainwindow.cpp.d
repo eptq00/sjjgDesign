@@ -5,6 +5,7 @@ C:/Users/86135/Desktop/UselessProject/SjjgDesign/sjjgDesign/build/Desktop_Qt_6_5
   C:/Users/86135/Desktop/UselessProject/SjjgDesign/sjjgDesign/nestmaze.h \
   C:/Users/86135/Desktop/UselessProject/SjjgDesign/sjjgDesign/questionboxjudge.h \
   C:/Users/86135/Desktop/UselessProject/SjjgDesign/sjjgDesign/questionboxpoem.h \
+  C:/Users/86135/Desktop/UselessProject/SjjgDesign/sjjgDesign/ranklist.h \
   C:/Users/86135/Desktop/UselessProject/SjjgDesign/sjjgDesign/taskmaze.h \
   C:/Users/86135/Desktop/UselessProject/SjjgDesign/sjjgDesign/taskpos.h \
   C:/Users/86135/Desktop/UselessProject/SjjgDesign/sjjgDesign/threedmaze.h \

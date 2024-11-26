@@ -1,5 +1,8 @@
 C:/Users/86135/Desktop/UselessProject/SjjgDesign/sjjgDesign/build/Desktop_Qt_6_5_3_MinGW_64_bit-Debug/sjjgDesign_autogen/EWIEGA46WW/moc_ranklist.cpp: C:/Users/86135/Desktop/UselessProject/SjjgDesign/sjjgDesign/ranklist.h \
   C:/Users/86135/Desktop/UselessProject/SjjgDesign/sjjgDesign/build/Desktop_Qt_6_5_3_MinGW_64_bit-Debug/sjjgDesign_autogen/moc_predefs.h \
+  C:/Users/86135/Desktop/UselessProject/SjjgDesign/sjjgDesign/userinfo.h \
+  D:/QT67/6.5.3/mingw_64/include/QtCore/QString \
+  D:/QT67/6.5.3/mingw_64/include/QtCore/QVector \
   D:/QT67/6.5.3/mingw_64/include/QtCore/q20memory.h \
   D:/QT67/6.5.3/mingw_64/include/QtCore/q20type_traits.h \
   D:/QT67/6.5.3/mingw_64/include/QtCore/qalgorithms.h \
@@ -106,6 +109,7 @@ C:/Users/86135/Desktop/UselessProject/SjjgDesign/sjjgDesign/build/Desktop_Qt_6_5
   D:/QT67/6.5.3/mingw_64/include/QtCore/qutf8stringview.h \
   D:/QT67/6.5.3/mingw_64/include/QtCore/qvariant.h \
   D:/QT67/6.5.3/mingw_64/include/QtCore/qvarlengtharray.h \
+  D:/QT67/6.5.3/mingw_64/include/QtCore/qvector.h \
   D:/QT67/6.5.3/mingw_64/include/QtCore/qversiontagging.h \
   D:/QT67/6.5.3/mingw_64/include/QtCore/qxptype_traits.h \
   D:/QT67/6.5.3/mingw_64/include/QtGui/qaction.h \

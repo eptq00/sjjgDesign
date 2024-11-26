@@ -67,6 +67,12 @@ void userLogin::saveUserFile() {
     for (auto& user : userInfos) {
         if (user->username == usercurrent->username) {
             // 替换旧数据为新的用户数据
+            int score = user->taskRight*7 - (user->taskTotal - user->taskRight) * 3;
+            if(score<=100) usercurrent->duanwei = 0;
+            else if(score>100 && score <=200) usercurrent->duanwei = 1;
+            else if(score>200 && score <=300) usercurrent->duanwei = 2;
+            else if(score>300 && score <=400) usercurrent->duanwei = 3;
+            else if(score>400 && score <=500) usercurrent->duanwei = 4;
             user = new userInfo(usercurrent);
         }
 

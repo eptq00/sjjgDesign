@@ -716,3 +716,10 @@ void MainWindow::on_action31_triggered()
     this->mode = 7;
 }
 
+
+void MainWindow::on_actionRanklist_triggered()
+{
+    ranklist = new rankList(userLog->userInfos);
+    ranklist->show();
+}
+

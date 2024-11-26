@@ -10,6 +10,7 @@ C:/Users/86135/Desktop/UselessProject/SjjgDesign/sjjgDesign/mainwindow.h
  mdp:C:/Users/86135/Desktop/UselessProject/SjjgDesign/sjjgDesign/nestmaze.h
  mdp:C:/Users/86135/Desktop/UselessProject/SjjgDesign/sjjgDesign/questionboxjudge.h
  mdp:C:/Users/86135/Desktop/UselessProject/SjjgDesign/sjjgDesign/questionboxpoem.h
+ mdp:C:/Users/86135/Desktop/UselessProject/SjjgDesign/sjjgDesign/ranklist.h
  mdp:C:/Users/86135/Desktop/UselessProject/SjjgDesign/sjjgDesign/taskmaze.h
  mdp:C:/Users/86135/Desktop/UselessProject/SjjgDesign/sjjgDesign/taskpos.h
  mdp:C:/Users/86135/Desktop/UselessProject/SjjgDesign/sjjgDesign/threedmaze.h
@@ -386,8 +387,6 @@ C:/Users/86135/Desktop/UselessProject/SjjgDesign/sjjgDesign/mainwindow.h
  mdp:D:/QT67/Tools/mingw1120_64/x86_64-w64-mingw32/include/wchar.h
 C:/Users/86135/Desktop/UselessProject/SjjgDesign/sjjgDesign/transferpos.cpp
 C:/Users/86135/Desktop/UselessProject/SjjgDesign/sjjgDesign/main.cpp
-C:/Users/86135/Desktop/UselessProject/SjjgDesign/sjjgDesign/mainwindow.cpp
- uic:./ui_mainwindow.h
 C:/Users/86135/Desktop/UselessProject/SjjgDesign/sjjgDesign/rescaleimg.h
  mmc:Q_OBJECT
  mdp:C:/Users/86135/Desktop/UselessProject/SjjgDesign/sjjgDesign/build/Desktop_Qt_6_5_3_MinGW_64_bit-Debug/sjjgDesign_autogen/moc_predefs.h
@@ -740,6 +739,8 @@ C:/Users/86135/Desktop/UselessProject/SjjgDesign/sjjgDesign/rescaleimg.h
  mdp:D:/QT67/Tools/mingw1120_64/x86_64-w64-mingw32/include/time.h
  mdp:D:/QT67/Tools/mingw1120_64/x86_64-w64-mingw32/include/vadefs.h
  mdp:D:/QT67/Tools/mingw1120_64/x86_64-w64-mingw32/include/wchar.h
+C:/Users/86135/Desktop/UselessProject/SjjgDesign/sjjgDesign/mainwindow.cpp
+ uic:./ui_mainwindow.h
 C:/Users/86135/Desktop/UselessProject/SjjgDesign/sjjgDesign/maze.h
 C:/Users/86135/Desktop/UselessProject/SjjgDesign/sjjgDesign/maze.cpp
 C:/Users/86135/Desktop/UselessProject/SjjgDesign/sjjgDesign/interactiveview.h
@@ -1093,7 +1094,6 @@ C:/Users/86135/Desktop/UselessProject/SjjgDesign/sjjgDesign/interactiveview.h
  mdp:D:/QT67/Tools/mingw1120_64/x86_64-w64-mingw32/include/wchar.h
 C:/Users/86135/Desktop/UselessProject/SjjgDesign/sjjgDesign/interactiveview.cpp
 C:/Users/86135/Desktop/UselessProject/SjjgDesign/sjjgDesign/rescaleimg.cpp
-C:/Users/86135/Desktop/UselessProject/SjjgDesign/sjjgDesign/taskmaze.cpp
 C:/Users/86135/Desktop/UselessProject/SjjgDesign/sjjgDesign/mykeyevent.h
  mmc:Q_OBJECT
  mdp:C:/Users/86135/Desktop/UselessProject/SjjgDesign/sjjgDesign/build/Desktop_Qt_6_5_3_MinGW_64_bit-Debug/sjjgDesign_autogen/moc_predefs.h
@@ -1448,6 +1448,7 @@ C:/Users/86135/Desktop/UselessProject/SjjgDesign/sjjgDesign/mykeyevent.h
  mdp:D:/QT67/Tools/mingw1120_64/x86_64-w64-mingw32/include/time.h
  mdp:D:/QT67/Tools/mingw1120_64/x86_64-w64-mingw32/include/vadefs.h
  mdp:D:/QT67/Tools/mingw1120_64/x86_64-w64-mingw32/include/wchar.h
+C:/Users/86135/Desktop/UselessProject/SjjgDesign/sjjgDesign/taskmaze.cpp
 C:/Users/86135/Desktop/UselessProject/SjjgDesign/sjjgDesign/mykeyevent.cpp
 C:/Users/86135/Desktop/UselessProject/SjjgDesign/sjjgDesign/mazekeyevent.h
  mmc:Q_OBJECT
@@ -1823,19 +1824,16 @@ C:/Users/86135/Desktop/UselessProject/SjjgDesign/sjjgDesign/mazekeyevent.h
  mdp:D:/QT67/Tools/mingw1120_64/x86_64-w64-mingw32/include/vadefs.h
  mdp:D:/QT67/Tools/mingw1120_64/x86_64-w64-mingw32/include/wchar.h
 C:/Users/86135/Desktop/UselessProject/SjjgDesign/sjjgDesign/mazekeyevent.cpp
-C:/Users/86135/Desktop/UselessProject/SjjgDesign/sjjgDesign/nestmaze.h
 C:/Users/86135/Desktop/UselessProject/SjjgDesign/sjjgDesign/questionjudgebox.cpp
  uic:ui_questionjudgebox.h
+C:/Users/86135/Desktop/UselessProject/SjjgDesign/sjjgDesign/nestmaze.h
 C:/Users/86135/Desktop/UselessProject/SjjgDesign/sjjgDesign/nestmaze.cpp
 C:/Users/86135/Desktop/UselessProject/SjjgDesign/sjjgDesign/timecount.h
 C:/Users/86135/Desktop/UselessProject/SjjgDesign/sjjgDesign/timecount.cpp
 C:/Users/86135/Desktop/UselessProject/SjjgDesign/sjjgDesign/threedmaze.h
 C:/Users/86135/Desktop/UselessProject/SjjgDesign/sjjgDesign/transferpos.h
-C:/Users/86135/Desktop/UselessProject/SjjgDesign/sjjgDesign/taskmaze.h
 C:/Users/86135/Desktop/UselessProject/SjjgDesign/sjjgDesign/threedmaze.cpp
-C:/Users/86135/Desktop/UselessProject/SjjgDesign/sjjgDesign/taskpos.h
-C:/Users/86135/Desktop/UselessProject/SjjgDesign/sjjgDesign/autopathdes.cpp
- uic:ui_autopathdes.h
+C:/Users/86135/Desktop/UselessProject/SjjgDesign/sjjgDesign/taskmaze.h
 C:/Users/86135/Desktop/UselessProject/SjjgDesign/sjjgDesign/questionbox.h
  mmc:Q_OBJECT
  mdp:C:/Users/86135/Desktop/UselessProject/SjjgDesign/sjjgDesign/build/Desktop_Qt_6_5_3_MinGW_64_bit-Debug/sjjgDesign_autogen/moc_predefs.h
@@ -2202,9 +2200,12 @@ C:/Users/86135/Desktop/UselessProject/SjjgDesign/sjjgDesign/questionbox.h
  mdp:D:/QT67/Tools/mingw1120_64/x86_64-w64-mingw32/include/time.h
  mdp:D:/QT67/Tools/mingw1120_64/x86_64-w64-mingw32/include/vadefs.h
  mdp:D:/QT67/Tools/mingw1120_64/x86_64-w64-mingw32/include/wchar.h
-C:/Users/86135/Desktop/UselessProject/SjjgDesign/sjjgDesign/taskpos.cpp
+C:/Users/86135/Desktop/UselessProject/SjjgDesign/sjjgDesign/autopathdes.cpp
+ uic:ui_autopathdes.h
+C:/Users/86135/Desktop/UselessProject/SjjgDesign/sjjgDesign/taskpos.h
 C:/Users/86135/Desktop/UselessProject/SjjgDesign/sjjgDesign/questionbox.cpp
  uic:ui_questionbox.h
+C:/Users/86135/Desktop/UselessProject/SjjgDesign/sjjgDesign/taskpos.cpp
 C:/Users/86135/Desktop/UselessProject/SjjgDesign/sjjgDesign/questionjudgebox.h
  mmc:Q_OBJECT
  mdp:C:/Users/86135/Desktop/UselessProject/SjjgDesign/sjjgDesign/build/Desktop_Qt_6_5_3_MinGW_64_bit-Debug/sjjgDesign_autogen/moc_predefs.h
@@ -3972,6 +3973,9 @@ C:/Users/86135/Desktop/UselessProject/SjjgDesign/sjjgDesign/ranklist.h
  mmc:Q_OBJECT
  mdp:C:/Users/86135/Desktop/UselessProject/SjjgDesign/sjjgDesign/build/Desktop_Qt_6_5_3_MinGW_64_bit-Debug/sjjgDesign_autogen/moc_predefs.h
  mdp:C:/Users/86135/Desktop/UselessProject/SjjgDesign/sjjgDesign/ranklist.h
+ mdp:C:/Users/86135/Desktop/UselessProject/SjjgDesign/sjjgDesign/userinfo.h
+ mdp:D:/QT67/6.5.3/mingw_64/include/QtCore/QString
+ mdp:D:/QT67/6.5.3/mingw_64/include/QtCore/QVector
  mdp:D:/QT67/6.5.3/mingw_64/include/QtCore/q20memory.h
  mdp:D:/QT67/6.5.3/mingw_64/include/QtCore/q20type_traits.h
  mdp:D:/QT67/6.5.3/mingw_64/include/QtCore/qalgorithms.h
@@ -4078,6 +4082,7 @@ C:/Users/86135/Desktop/UselessProject/SjjgDesign/sjjgDesign/ranklist.h
  mdp:D:/QT67/6.5.3/mingw_64/include/QtCore/qutf8stringview.h
  mdp:D:/QT67/6.5.3/mingw_64/include/QtCore/qvariant.h
  mdp:D:/QT67/6.5.3/mingw_64/include/QtCore/qvarlengtharray.h
+ mdp:D:/QT67/6.5.3/mingw_64/include/QtCore/qvector.h
  mdp:D:/QT67/6.5.3/mingw_64/include/QtCore/qversiontagging.h
  mdp:D:/QT67/6.5.3/mingw_64/include/QtCore/qxptype_traits.h
  mdp:D:/QT67/6.5.3/mingw_64/include/QtGui/qaction.h

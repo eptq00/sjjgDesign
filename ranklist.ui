@@ -57,6 +57,11 @@
    </item>
    <item>
     <property name="text">
+     <string>正确数</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
      <string>准确率</string>
     </property>
    </item>

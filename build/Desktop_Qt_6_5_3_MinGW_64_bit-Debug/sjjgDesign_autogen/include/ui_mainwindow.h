@@ -37,6 +37,7 @@ public:
     QAction *action31;
     QAction *action13;
     QAction *action23;
+    QAction *actionRanklist;
     QWidget *centralwidget;
     QWidget *verticalLayoutWidget_2;
     QVBoxLayout *mazeSizeBox;
@@ -91,6 +92,8 @@ public:
         action13->setObjectName("action13");
         action23 = new QAction(MainWindow);
         action23->setObjectName("action23");
+        actionRanklist = new QAction(MainWindow);
+        actionRanklist->setObjectName("actionRanklist");
         centralwidget = new QWidget(MainWindow);
         centralwidget->setObjectName("centralwidget");
         verticalLayoutWidget_2 = new QWidget(centralwidget);
@@ -217,6 +220,7 @@ public:
         menuBar->addAction(menu_2->menuAction());
         menu->addAction(actionGame);
         menu->addAction(actionHelp);
+        menu->addAction(actionRanklist);
         menu_2->addAction(menu_3->menuAction());
         menu_2->addAction(menu_4->menuAction());
         menu_2->addAction(menuf->menuAction());
@@ -251,6 +255,7 @@ public:
         action31->setText(QCoreApplication::translate("MainWindow", "\346\231\256\351\200\232", nullptr));
         action13->setText(QCoreApplication::translate("MainWindow", "\347\253\213\344\275\223", nullptr));
         action23->setText(QCoreApplication::translate("MainWindow", "\347\253\213\344\275\223", nullptr));
+        actionRanklist->setText(QCoreApplication::translate("MainWindow", "Ranklist", nullptr));
         mazeSizeLabel1->setText(QCoreApplication::translate("MainWindow", "\350\257\267\350\276\223\345\205\245\350\277\267\345\256\253\345\244\247\345\260\217\357\274\232", nullptr));
         mazeSizeLabel2->setText(QCoreApplication::translate("MainWindow", "\346\263\250\346\204\217\357\274\232\345\245\207\346\225\260\357\274\214\345\260\217\344\272\216xxx", nullptr));
         mazeSize8->setText(QCoreApplication::translate("MainWindow", "8", nullptr));
