@@ -15,13 +15,14 @@ public:
     virtual void base();
     void create3DMaze();
     void setLayer(int layer);
-    QVector<transferPos*> transfersup;
-    QVector<transferPos*> transfersdown;
     virtual QImage mazeMap();
     void setTransfer();
+    void resetTransfer();
 
 private:
-    //void createMaze();
+    void createMaze();
+    QVector<transferPos*> transfersup;
+    QVector<transferPos*> transfersdown;
 };
 
 #endif // THREEDMAZE_H

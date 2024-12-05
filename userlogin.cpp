@@ -2,6 +2,7 @@
 #include "ui_userlogin.h"
 #include <QFile>
 #include <QDebug>
+#include <QThread>
 
 userLogin::userLogin(QWidget *parent)
     : QWidget(parent)
@@ -126,14 +127,8 @@ void userLogin::on_login_clicked()
     int i;
     if(isLogin){
         //登陆成功
+        this->showDuanwei();
         emit userIsLogin();
-        switch(usercurrent->duanwei){
-        case 0:i=0;break;
-        case 1:i=0;break;
-        case 2:i=0;break;
-        case 3:i=0;break;
-        case 4:i=0;break;
-        }
         close();
     }
     else{
@@ -163,4 +158,9 @@ void userLogin::on_registerbutton_clicked()
     userInfos.append(newUser);
 }
 
-
+void userLogin::showDuanwei(){
+    QString imagePath = "C:/Users/86135/Desktop/段位/" + QString::number(usercurrent->duanwei) + ".png";
+    QImage image;
+    image.load(imagePath);
+    this->ui->duanwei->setPixmap(QPixmap::fromImage(image));
+}

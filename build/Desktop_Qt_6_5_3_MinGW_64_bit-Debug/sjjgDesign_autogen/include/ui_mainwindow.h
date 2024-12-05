@@ -62,6 +62,7 @@ public:
     QPushButton *mazeAuto;
     rescaleImg *mazeGraphicsView;
     QLabel *TimeCNT;
+    QLabel *duanwei;
     QMenuBar *menuBar;
     QMenu *menu;
     QMenu *menu_2;
@@ -199,7 +200,11 @@ public:
         mazeGraphicsView->setDragMode(QGraphicsView::DragMode::ScrollHandDrag);
         TimeCNT = new QLabel(centralwidget);
         TimeCNT->setObjectName("TimeCNT");
-        TimeCNT->setGeometry(QRect(30, 450, 91, 31));
+        TimeCNT->setGeometry(QRect(30, 510, 91, 31));
+        duanwei = new QLabel(centralwidget);
+        duanwei->setObjectName("duanwei");
+        duanwei->setGeometry(QRect(20, 370, 111, 111));
+        duanwei->setScaledContents(true);
         MainWindow->setCentralWidget(centralwidget);
         menuBar = new QMenuBar(MainWindow);
         menuBar->setObjectName("menuBar");
@@ -274,6 +279,7 @@ public:
         mazeBegin->setText(QCoreApplication::translate("MainWindow", "\345\274\200\345\247\213\346\270\270\346\210\217", nullptr));
         mazeAuto->setText(QCoreApplication::translate("MainWindow", "\350\207\252\345\212\250\345\257\273\350\267\257", nullptr));
         TimeCNT->setText(QString());
+        duanwei->setText(QString());
         menu->setTitle(QCoreApplication::translate("MainWindow", "\351\200\211\351\241\271", nullptr));
         menu_2->setTitle(QCoreApplication::translate("MainWindow", "\346\250\241\345\274\217", nullptr));
         menu_3->setTitle(QCoreApplication::translate("MainWindow", "\346\227\240\345\260\275", nullptr));

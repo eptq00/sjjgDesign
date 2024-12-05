@@ -5,10 +5,9 @@ class transferPos
 {
 public:
     transferPos();
-    transferPos(int x, int y, int type);
+    transferPos(int x, int y);
     int trans_x;
     int trans_y;
-    int trans_type;
 };
 
 #endif // TRANSFERPOS_H

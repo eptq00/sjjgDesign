@@ -33,6 +33,7 @@ private:
     QString username;
     QString password;
     bool isLogin = false;
+    void showDuanwei();
 
 signals:
     void userIsLogin();

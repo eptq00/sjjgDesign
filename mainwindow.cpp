@@ -1,4 +1,4 @@
-#include "mainwindow.h"
+ #include "mainwindow.h"
 #include "./ui_mainwindow.h"
 #include "maze.h"
 #include "nestmaze.h"
@@ -174,15 +174,15 @@ void MainWindow::initTaskMaze(){
     showMaze(taskmaze);
 }
 
-// void MainWindow::init3DMaze(){
-//     threedmaze = new threeDMaze();
-//     threedmaze->base();
-//     threedmaze->setMazeLevel(this->mazeSize);
-//     threedmaze->setLayer(this->mazeSize/7);
-//     threedmaze->create3DMaze();
-//     threedmaze->setTransfer();
-//     showMaze(threedmaze);
-// }
+void MainWindow::init3DMaze(){
+    threedmaze = new threeDMaze();
+    threedmaze->setMazeLevel(this->mazeSize);
+    threedmaze->setLayer(this->mazeSize/7);
+    threedmaze->base();
+    threedmaze->create3DMaze();
+    threedmaze->setTransfer();
+    showMaze(threedmaze);
+}
 
 // QGraphicsView上打印迷宫图片
 void MainWindow::showMaze(Maze* maze1){
@@ -220,6 +220,8 @@ void MainWindow::showNestCell(nestMaze* nestmaze1){
 
 void MainWindow::on_mazeBegin_clicked()
 {
+    user_my = new userInfo(userLog->usercurrent);
+    this->showDuanwei();
     lock = false;
     if(mazeSize!=-1){
         if(this->mode == 1 || this->mode == 3){
@@ -247,18 +249,18 @@ void MainWindow::on_mazeBegin_clicked()
                 timer->start();  // 启动计时器
             }
         }
-        // else if(this->mode == 5 || this->mode == 6){
-        //     //this->init3DMaze();
-        //     if(this->mode == 6){
-        //         //添加开始计时逻辑
-        //         timer = new QTimer(this);
-        //         timer->setInterval(100);
-        //         timeCNT->timeStart();
+        else if(this->mode == 5 || this->mode == 6){
+            this->init3DMaze();
+            if(this->mode == 6){
+                //添加开始计时逻辑
+                timer = new QTimer(this);
+                timer->setInterval(100);
+                timeCNT->timeStart();
 
-        //         connect(timer, &QTimer::timeout, this, &MainWindow::refresh);
-        //         timer->start();  // 启动计时器
-        //     }
-        // }
+                connect(timer, &QTimer::timeout, this, &MainWindow::refresh);
+                timer->start();  // 启动计时器
+            }
+        }
         else if(this->mode == 7){
             this->initTaskMaze();
         }
@@ -442,6 +444,173 @@ void MainWindow::keyPressEvent(QKeyEvent *event){
             }
             nextLevel(nestmaze);    // 下一关
         }
+        else if(this->mode == 5 || this->mode == 6){
+            bool isChange = false;
+            bool isUP = false;
+            bool isDOWN = false;
+            switch (event->key()) { // 捕获键盘事件按下的键
+            // W键逻辑-向上移动
+            case Qt::Key_W:
+                // 如果角色上面为路，改变矩阵当前位置为1（路），上方为2（人），下同
+                if(threedmaze->threeDMap[threedmaze->my_z][threedmaze->my_x-1][threedmaze->my_y] == 1 ||
+                    threedmaze->threeDMap[threedmaze->my_z][threedmaze->my_x-1][threedmaze->my_y] == 4 ||
+                    threedmaze->threeDMap[threedmaze->my_z][threedmaze->my_x-1][threedmaze->my_y] == 5 ||
+                    threedmaze->threeDMap[threedmaze->my_z][threedmaze->my_x-1][threedmaze->my_y] == 8){
+                    isChange = false;
+                    isUP = false;
+                    isDOWN = false;
+                    if(threedmaze->threeDMap[threedmaze->my_z][threedmaze->my_x-1][threedmaze->my_y] == 5){
+                        isChange = true;
+                        isUP = true;
+                        threedmaze->my_z++;
+                    }
+                    else if(threedmaze->threeDMap[threedmaze->my_z][threedmaze->my_x-1][threedmaze->my_y] == 8){
+                        isChange = true;
+                        isDOWN = true;
+                        threedmaze->my_z--;
+                    }
+                    if(!isChange){
+                        threedmaze->threeDMap[threedmaze->my_z][threedmaze->my_x][threedmaze->my_y]=1;
+                        threedmaze->threeDMap[threedmaze->my_z][threedmaze->my_x-1][threedmaze->my_y]=2;
+                        threedmaze->my_x=threedmaze->my_x-1;
+                    }
+                    else{
+                        if(isUP){
+                            threedmaze->threeDMap[threedmaze->my_z-1][threedmaze->my_x][threedmaze->my_y]=1;
+                            threedmaze->threeDMap[threedmaze->my_z][threedmaze->my_x-1][threedmaze->my_y]=2;
+                            threedmaze->my_x=threedmaze->my_x-1;
+                        }
+                        if(isDOWN){
+                            threedmaze->threeDMap[threedmaze->my_z+1][threedmaze->my_x][threedmaze->my_y]=1;
+                            threedmaze->threeDMap[threedmaze->my_z][threedmaze->my_x-1][threedmaze->my_y]=2;
+                            threedmaze->my_x=threedmaze->my_x-1;
+                        }
+                    }
+                }
+                break;
+            case Qt::Key_A:
+                if(threedmaze->threeDMap[threedmaze->my_z][threedmaze->my_x][threedmaze->my_y-1] == 1 ||
+                    threedmaze->threeDMap[threedmaze->my_z][threedmaze->my_x][threedmaze->my_y-1] == 4 ||
+                    threedmaze->threeDMap[threedmaze->my_z][threedmaze->my_x][threedmaze->my_y-1] == 5 ||
+                    threedmaze->threeDMap[threedmaze->my_z][threedmaze->my_x][threedmaze->my_y-1] == 8){
+                    isChange = false;
+                    isUP = false;
+                    isDOWN = false;
+                    if(threedmaze->threeDMap[threedmaze->my_z][threedmaze->my_x][threedmaze->my_y-1] == 5){
+                        isChange = true;
+                        isUP = true;
+                        threedmaze->my_z++;
+                    }
+                    else if(threedmaze->threeDMap[threedmaze->my_z][threedmaze->my_x][threedmaze->my_y-1] == 8){
+                        isChange = true;
+                        isDOWN = true;
+                        threedmaze->my_z--;
+                    }
+                    if(!isChange){
+                        threedmaze->threeDMap[threedmaze->my_z][threedmaze->my_x][threedmaze->my_y]=1;
+                        threedmaze->threeDMap[threedmaze->my_z][threedmaze->my_x][threedmaze->my_y-1]=2;
+                        threedmaze->my_y=threedmaze->my_y-1;
+                    }
+                    else{
+                        if(isUP){
+                            threedmaze->threeDMap[threedmaze->my_z-1][threedmaze->my_x][threedmaze->my_y]=1;
+                            threedmaze->threeDMap[threedmaze->my_z][threedmaze->my_x][threedmaze->my_y-1]=2;
+                            threedmaze->my_y=threedmaze->my_y-1;
+                        }
+                        if(isDOWN){
+                            threedmaze->threeDMap[threedmaze->my_z+1][threedmaze->my_x][threedmaze->my_y]=1;
+                            threedmaze->threeDMap[threedmaze->my_z][threedmaze->my_x][threedmaze->my_y-1]=2;
+                            threedmaze->my_y=threedmaze->my_y-1;
+                        }
+                    }
+                }
+                // 在这里添加向左移动的逻辑
+                break;
+            case Qt::Key_S:
+                if(threedmaze->threeDMap[threedmaze->my_z][threedmaze->my_x+1][threedmaze->my_y] == 1 ||
+                    threedmaze->threeDMap[threedmaze->my_z][threedmaze->my_x+1][threedmaze->my_y] == 4 ||
+                    threedmaze->threeDMap[threedmaze->my_z][threedmaze->my_x+1][threedmaze->my_y] == 5 ||
+                    threedmaze->threeDMap[threedmaze->my_z][threedmaze->my_x+1][threedmaze->my_y] == 8){
+                    isChange = false;
+                    isUP = false;
+                    isDOWN = false;
+                    if(threedmaze->threeDMap[threedmaze->my_z][threedmaze->my_x+1][threedmaze->my_y] == 5){
+                        isChange = true;
+                        isUP = true;
+                        threedmaze->my_z++;
+                    }
+                    else if(threedmaze->threeDMap[threedmaze->my_z][threedmaze->my_x+1][threedmaze->my_y] == 8){
+                        isChange = true;
+                        isDOWN = true;
+                        threedmaze->my_z--;
+                    }
+                    if(!isChange){
+                        threedmaze->threeDMap[threedmaze->my_z][threedmaze->my_x][threedmaze->my_y]=1;
+                        threedmaze->threeDMap[threedmaze->my_z][threedmaze->my_x+1][threedmaze->my_y]=2;
+                        threedmaze->my_x=threedmaze->my_x+1;
+                    }
+                    else{
+                        if(isUP){
+                            threedmaze->threeDMap[threedmaze->my_z-1][threedmaze->my_x][threedmaze->my_y]=1;
+                            threedmaze->threeDMap[threedmaze->my_z][threedmaze->my_x+1][threedmaze->my_y]=2;
+                            threedmaze->my_x=threedmaze->my_x+1;
+                        }
+                        if(isDOWN){
+                            threedmaze->threeDMap[threedmaze->my_z+1][threedmaze->my_x][threedmaze->my_y]=1;
+                            threedmaze->threeDMap[threedmaze->my_z][threedmaze->my_x+1][threedmaze->my_y]=2;
+                            threedmaze->my_x=threedmaze->my_x+1;
+                        }
+                    }
+                }
+                // 在这里添加向下移动的逻辑
+                break;
+            case Qt::Key_D:
+                if(threedmaze->threeDMap[threedmaze->my_z][threedmaze->my_x][threedmaze->my_y+1] == 1 ||
+                    threedmaze->threeDMap[threedmaze->my_z][threedmaze->my_x][threedmaze->my_y+1] == 4 ||
+                    threedmaze->threeDMap[threedmaze->my_z][threedmaze->my_x][threedmaze->my_y+1] == 5  ||
+                    threedmaze->threeDMap[threedmaze->my_z][threedmaze->my_x][threedmaze->my_y+1] ==  8){
+                    isChange = false;
+                    isUP = false;
+                    isDOWN = false;
+                    if(threedmaze->threeDMap[threedmaze->my_z][threedmaze->my_x][threedmaze->my_y+1] == 5){
+                        isChange = true;
+                        isUP = true;
+                        threedmaze->my_z++;
+                    }
+                    else if(threedmaze->threeDMap[threedmaze->my_z][threedmaze->my_x][threedmaze->my_y+1] == 8){
+                        isChange = true;
+                        isDOWN = true;
+                        threedmaze->my_z--;
+
+                    }
+                    if(!isChange){
+                        threedmaze->threeDMap[threedmaze->my_z][threedmaze->my_x][threedmaze->my_y]=1;
+                        threedmaze->threeDMap[threedmaze->my_z][threedmaze->my_x][threedmaze->my_y+1]=2;
+                        threedmaze->my_y=threedmaze->my_y+1;
+                    }
+                    else{
+                        if(isUP){
+                            threedmaze->threeDMap[threedmaze->my_z-1][threedmaze->my_x][threedmaze->my_y]=1;
+                            threedmaze->threeDMap[threedmaze->my_z][threedmaze->my_x][threedmaze->my_y+1]=2;
+                            threedmaze->my_y=threedmaze->my_y+1;
+                        }
+                        if(isDOWN){
+                            threedmaze->threeDMap[threedmaze->my_z+1][threedmaze->my_x][threedmaze->my_y]=1;
+                            threedmaze->threeDMap[threedmaze->my_z][threedmaze->my_x][threedmaze->my_y+1]=2;
+                            threedmaze->my_y=threedmaze->my_y+1;
+                        }
+                    }
+
+                }
+                // 在这里添加向右移动的逻辑
+                break;
+            default:
+                break;
+            }
+            threedmaze->resetTransfer();
+            showMaze(threedmaze); // 显示新的图片
+            nextLevel(threedmaze);    // 下一关
+        }
         else if(this->mode == 7){
             switch (event->key()) { // 捕获键盘事件按下的键
             // W键逻辑-向上移动
@@ -608,6 +777,19 @@ void MainWindow::nextLevel(Maze* maze1){
                 qDebug()<<"快去做任务";
         }
     }
+    if(this->mode == 7){
+        if(threedmaze->threeDMap[threedmaze->layer-1][threedmaze->mazeLevel-2][threedmaze->mazeLevel-1] == 2){
+            if(this->mode == 5){
+                init3DMaze();
+            }
+            else if(this->mode == 6){
+                timer->stop();
+                timeCNT->timeEnd();
+                //不再接受键盘信号
+                lock = true;
+            }
+        }
+    }
 }
 
 
@@ -690,6 +872,9 @@ void MainWindow::findPath(){
         nestmaze->map[nestmaze->getnestx()][nestmaze->getnesty()] = 3;
         showMaze(nestmaze);
     }
+    // else if(mode == 5 || mode == 6){
+    //     threedmaze->
+    // }
     else if (mode == 7){
         taskmaze->autoFindPath(des_x,des_y);
         taskmaze->map[taskmaze->my_x][taskmaze->my_y]=2;
@@ -721,5 +906,12 @@ void MainWindow::on_actionRanklist_triggered()
 {
     ranklist = new rankList(userLog->userInfos);
     ranklist->show();
+}
+
+void MainWindow::showDuanwei(){
+    QString imagePath = "C:/Users/86135/Desktop/段位/" + QString::number(user_my->duanwei) + ".png";
+    QImage image;
+    image.load(imagePath);
+    this->ui->duanwei->setPixmap(QPixmap::fromImage(image));
 }
 

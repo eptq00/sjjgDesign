@@ -49,6 +49,7 @@ public:
         duanwei = new QLabel(userLogin);
         duanwei->setObjectName("duanwei");
         duanwei->setGeometry(QRect(180, 40, 61, 51));
+        duanwei->setScaledContents(true);
         login = new QPushButton(userLogin);
         login->setObjectName("login");
         login->setGeometry(QRect(90, 230, 93, 28));

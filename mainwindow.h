@@ -115,6 +115,6 @@ private:
     void largeNest(QImage orimage);
     void smallNest(QImage orimage);
     void findPath();
-
+    void showDuanwei();
 };
 #endif // MAINWINDOW_H
