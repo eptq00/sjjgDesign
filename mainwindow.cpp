@@ -222,6 +222,7 @@ void MainWindow::on_mazeBegin_clicked()
 {
     user_my = new userInfo(userLog->usercurrent);
     this->showDuanwei();
+    this->ui->TimeCNT->clear();
     lock = false;
     if(mazeSize!=-1){
         if(this->mode == 1 || this->mode == 3){
@@ -777,7 +778,7 @@ void MainWindow::nextLevel(Maze* maze1){
                 qDebug()<<"快去做任务";
         }
     }
-    if(this->mode == 7){
+    if(this->mode == 5 || this->mode == 6){
         if(threedmaze->threeDMap[threedmaze->layer-1][threedmaze->mazeLevel-2][threedmaze->mazeLevel-1] == 2){
             if(this->mode == 5){
                 init3DMaze();

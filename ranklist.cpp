@@ -100,15 +100,15 @@ void rankList::on_comboBox_currentIndexChanged(int index)
     this->ui->textBrowser->clear();
 
     if(index == 1){
-        this->orderByDuanwei();
+        this->orderByTaskTotal();
         printUserInfo("做题数");
     }
     else if(index == 2){
-        this->orderByDuanwei();
+        this->orderByTaskRight();
         printUserInfo("正确数");
     }
     else if(index == 3){
-        this->orderByDuanwei();
+        this->orderByTaskAccu();
         printUserInfo("准确率");
     }
     else if(index == 4){
