@@ -192,11 +192,18 @@ void MainWindow::showMaze(Maze* maze1){
 
 
     // 调整大小
-    if(ui->mazeGraphicsView->width() > ui->mazeGraphicsView->height())
-        scaledImage = orimage.scaled(ui->mazeGraphicsView->height(), ui->mazeGraphicsView->height());
-    else
-        scaledImage = orimage.scaled(ui->mazeGraphicsView->width(), ui->mazeGraphicsView->width());
-
+    if(this->mode == 9 || this->mode == 10){
+        if(ui->mazeGraphicsView->width() > ui->mazeGraphicsView->height())
+            scaledImage = orimage.scaled(3*ui->mazeGraphicsView->height(), 3*ui->mazeGraphicsView->height());
+        else
+            scaledImage = orimage.scaled(3*ui->mazeGraphicsView->width(), 3*ui->mazeGraphicsView->width());
+    }
+    else{
+        if(ui->mazeGraphicsView->width() > ui->mazeGraphicsView->height())
+            scaledImage = orimage.scaled(ui->mazeGraphicsView->height(), ui->mazeGraphicsView->height());
+        else
+            scaledImage = orimage.scaled(ui->mazeGraphicsView->width(), ui->mazeGraphicsView->width());
+    }
     scene->addPixmap(QPixmap::fromImage(scaledImage));
     ui->mazeGraphicsView->setScene(scene);
     ui->mazeGraphicsView->show();
@@ -223,15 +230,16 @@ void MainWindow::on_mazeBegin_clicked()
     user_my = new userInfo(userLog->usercurrent);
     this->showDuanwei();
     this->ui->TimeCNT->clear();
+    //timer = new QTimer(this);
+    timer->stop();
     lock = false;
     if(mazeSize!=-1){
-        if(this->mode == 1 || this->mode == 3){
+        if(this->mode == 1 || this->mode == 3 || this->mode == 9 || this->mode == 10){
             this->initMaze();
-            if(this->mode == 3){
+            if(this->mode == 3 || this->mode == 10){
                 //添加开始计时逻辑
-                timer = new QTimer(this);
+                //timer = new QTimer(this);
                 timer->setInterval(100);
-
                 timeCNT->timeStart();
 
                 connect(timer, &QTimer::timeout, this, &MainWindow::refresh);
@@ -242,7 +250,7 @@ void MainWindow::on_mazeBegin_clicked()
             this->initNestMaze();
             if(this->mode == 4){
                 //添加开始计时逻辑
-                timer = new QTimer(this);
+                //timer = new QTimer(this);
                 timer->setInterval(100);
                 timeCNT->timeStart();
 
@@ -254,7 +262,7 @@ void MainWindow::on_mazeBegin_clicked()
             this->init3DMaze();
             if(this->mode == 6){
                 //添加开始计时逻辑
-                timer = new QTimer(this);
+                //timer = new QTimer(this);
                 timer->setInterval(100);
                 timeCNT->timeStart();
 
@@ -269,7 +277,7 @@ void MainWindow::on_mazeBegin_clicked()
 }
 
 void MainWindow::refresh(){
-    if(this->mode == 3 || this->mode == 4){
+    if(this->mode == 3 || this->mode == 4 || this->mode == 6 || this->mode == 10){
         QString time = timeCNT->refreshTime();
         this->ui->TimeCNT->setText("<font color='red'>"+time+"</font>");
     }
@@ -283,7 +291,7 @@ void MainWindow::closeEvent(QCloseEvent *event) {
 // 键盘事件监控函数
 void MainWindow::keyPressEvent(QKeyEvent *event){
     if(!lock){
-        if(this->mode == 1 || this->mode == 3){
+        if(this->mode == 1 || this->mode == 3 || this->mode == 9 || this->mode == 10){
             switch (event->key()) { // 捕获键盘事件按下的键
             // W键逻辑-向上移动
             case Qt::Key_W:
@@ -622,11 +630,13 @@ void MainWindow::keyPressEvent(QKeyEvent *event){
                     taskmaze->map[taskmaze->my_x-1][taskmaze->my_y] == 6 ||
                     taskmaze->map[taskmaze->my_x-1][taskmaze->my_y] == 7){
                     if(taskmaze->map[taskmaze->my_x-1][taskmaze->my_y] == 6){
+                        lock = true;
                         quesBoxJudge->createJudgeQuestion();
                         quesBoxJudge->setQuestion();
                         quesBoxJudge->show();
                     }
                     else if(taskmaze->map[taskmaze->my_x-1][taskmaze->my_y] == 7){
+                        lock = true;
                         quesBoxPoem->createPoemQuestion();
                         quesBoxPoem->setQuestion();
                         quesBoxPoem->show();
@@ -642,11 +652,13 @@ void MainWindow::keyPressEvent(QKeyEvent *event){
                     taskmaze->map[taskmaze->my_x][taskmaze->my_y-1] == 6 ||
                     taskmaze->map[taskmaze->my_x][taskmaze->my_y-1] == 7){
                     if(taskmaze->map[taskmaze->my_x][taskmaze->my_y-1] == 6){
+                        lock = true;
                         quesBoxJudge->createJudgeQuestion();
                         quesBoxJudge->setQuestion();
                         quesBoxJudge->show();
                     }
                     else if(taskmaze->map[taskmaze->my_x][taskmaze->my_y-1] == 7){
+                        lock = true;
                         quesBoxPoem->createPoemQuestion();
                         quesBoxPoem->setQuestion();
                         quesBoxPoem->show();
@@ -663,11 +675,13 @@ void MainWindow::keyPressEvent(QKeyEvent *event){
                     taskmaze->map[taskmaze->my_x+1][taskmaze->my_y] == 6 ||
                     taskmaze->map[taskmaze->my_x+1][taskmaze->my_y] == 7){
                     if(taskmaze->map[taskmaze->my_x+1][taskmaze->my_y] == 6){
+                        lock = true;
                         quesBoxJudge->createJudgeQuestion();
                         quesBoxJudge->setQuestion();
                         quesBoxJudge->show();
                     }
                     else if(taskmaze->map[taskmaze->my_x+1][taskmaze->my_y] == 7){
+                        lock = true;
                         quesBoxPoem->createPoemQuestion();
                         quesBoxPoem->setQuestion();
                         quesBoxPoem->show();
@@ -684,11 +698,13 @@ void MainWindow::keyPressEvent(QKeyEvent *event){
                     taskmaze->map[taskmaze->my_x][taskmaze->my_y+1] == 6 ||
                     taskmaze->map[taskmaze->my_x][taskmaze->my_y+1] == 7){
                     if(taskmaze->map[taskmaze->my_x][taskmaze->my_y+1] == 6){
+                        lock = true;
                         quesBoxJudge->createJudgeQuestion();
                         quesBoxJudge->setQuestion();
                         quesBoxJudge->show();
                     }
                     else if(taskmaze->map[taskmaze->my_x][taskmaze->my_y+1] == 7){
+                        lock = true;
                         quesBoxPoem->createPoemQuestion();
                         quesBoxPoem->setQuestion();
                         quesBoxPoem->show();
@@ -749,7 +765,7 @@ void MainWindow::smallNest(QImage orimage){
 void MainWindow::nextLevel(Maze* maze1){
     if(maze1->map[maze1->mazeLevel-2][maze1->mazeLevel-1]==2){
         //通关逻辑
-        if(this->mode == 1){
+        if(this->mode == 1 || this->mode == 9){
             userLog->usercurrent->levelPutong++;
             initMaze();
         }
@@ -757,7 +773,7 @@ void MainWindow::nextLevel(Maze* maze1){
             userLog->usercurrent->levelNeiqian++;
             initNestMaze();
         }
-        else if(this->mode == 3){
+        else if(this->mode == 3 || this->mode == 10){
             timer->stop();
             timeCNT->timeEnd();
             userLog->usercurrent->timePutong = timeCNT->getTime();
@@ -815,18 +831,21 @@ void MainWindow::on_actionGame_triggered()
 void MainWindow::on_mode11_triggered()
 {
     this->mode=1;
+    timer = new QTimer(this);
 }
 
 
 void MainWindow::on_mode12_triggered()
 {
     this->mode=2;
+    timer = new QTimer(this);
 }
 
 void MainWindow::on_mode21_triggered()
 {
     this->mode=3;
     timeCNT = new TimeCount();
+    timer = new QTimer(this);
 }
 
 
@@ -834,17 +853,21 @@ void MainWindow::on_mode22_triggered()
 {
     this->mode=4;
     timeCNT = new TimeCount();
+    timer = new QTimer(this);
 }
 
 void MainWindow::on_action13_triggered()
 {
     this->mode = 5;
+    timer = new QTimer(this);
 }
 
 
 void MainWindow::on_action23_triggered()
 {
     this->mode = 6;
+    timeCNT = new TimeCount();
+    timer = new QTimer(this);
 }
 
 
@@ -895,11 +918,13 @@ void MainWindow::taskRightPlus(){
     userLog->usercurrent->taskRight++;
     userLog->usercurrent->taskAccu = (double)userLog->usercurrent->taskRight / userLog->usercurrent->taskTotal;
     qDebug()<<"你的准确率是："<<userLog->usercurrent->taskAccu;
+    lock=false;
 }
 
 void MainWindow::on_action31_triggered()
 {
     this->mode = 7;
+    timer = new QTimer(this);
 }
 
 
@@ -914,5 +939,20 @@ void MainWindow::showDuanwei(){
     QImage image;
     image.load(imagePath);
     this->ui->duanwei->setPixmap(QPixmap::fromImage(image));
+}
+
+
+void MainWindow::on_action14_triggered()
+{
+    this->mode = 9;
+    timer = new QTimer(this);
+}
+
+
+void MainWindow::on_action24_triggered()
+{
+    this->mode = 10;
+    timeCNT = new TimeCount();
+    timer = new QTimer(this);
 }
 

@@ -48,8 +48,9 @@ public:
         passwordEdit->setGeometry(QRect(170, 170, 113, 25));
         duanwei = new QLabel(userLogin);
         duanwei->setObjectName("duanwei");
-        duanwei->setGeometry(QRect(180, 40, 61, 51));
-        duanwei->setScaledContents(true);
+        duanwei->setGeometry(QRect(80, 40, 261, 51));
+        duanwei->setScaledContents(false);
+        duanwei->setAlignment(Qt::AlignmentFlag::AlignCenter);
         login = new QPushButton(userLogin);
         login->setObjectName("login");
         login->setGeometry(QRect(90, 230, 93, 28));

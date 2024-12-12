@@ -85,6 +85,10 @@ private slots:
 
     void on_actionRanklist_triggered();
 
+    void on_action14_triggered();
+
+    void on_action24_triggered();
+
 private:
     Ui::MainWindow *ui;
     QString expression;

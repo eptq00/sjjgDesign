@@ -235,6 +235,7 @@
      <addaction name="mode11"/>
      <addaction name="mode12"/>
      <addaction name="action13"/>
+     <addaction name="action14"/>
     </widget>
     <widget class="QMenu" name="menu_4">
      <property name="title">
@@ -243,6 +244,7 @@
      <addaction name="mode21"/>
      <addaction name="mode22"/>
      <addaction name="action23"/>
+     <addaction name="action24"/>
     </widget>
     <widget class="QMenu" name="menuf">
      <property name="title">
@@ -311,6 +313,16 @@
   <action name="actionRanklist">
    <property name="text">
     <string>Ranklist</string>
+   </property>
+  </action>
+  <action name="action14">
+   <property name="text">
+    <string>限制</string>
+   </property>
+  </action>
+  <action name="action24">
+   <property name="text">
+    <string>限制</string>
    </property>
   </action>
  </widget>

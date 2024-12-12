@@ -133,6 +133,7 @@ void userLogin::on_login_clicked()
     }
     else{
         qWarning() << "Username not found:" << username;
+        ui->duanwei->setText("还未注册或密码错误，请检查");
         ui->passwordEdit->clear();
     }
 }

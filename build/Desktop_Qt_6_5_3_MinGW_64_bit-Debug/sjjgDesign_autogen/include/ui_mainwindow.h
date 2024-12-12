@@ -38,6 +38,8 @@ public:
     QAction *action13;
     QAction *action23;
     QAction *actionRanklist;
+    QAction *action14;
+    QAction *action24;
     QWidget *centralwidget;
     QWidget *verticalLayoutWidget_2;
     QVBoxLayout *mazeSizeBox;
@@ -95,6 +97,10 @@ public:
         action23->setObjectName("action23");
         actionRanklist = new QAction(MainWindow);
         actionRanklist->setObjectName("actionRanklist");
+        action14 = new QAction(MainWindow);
+        action14->setObjectName("action14");
+        action24 = new QAction(MainWindow);
+        action24->setObjectName("action24");
         centralwidget = new QWidget(MainWindow);
         centralwidget->setObjectName("centralwidget");
         verticalLayoutWidget_2 = new QWidget(centralwidget);
@@ -232,9 +238,11 @@ public:
         menu_3->addAction(mode11);
         menu_3->addAction(mode12);
         menu_3->addAction(action13);
+        menu_3->addAction(action14);
         menu_4->addAction(mode21);
         menu_4->addAction(mode22);
         menu_4->addAction(action23);
+        menu_4->addAction(action24);
         menuf->addAction(action31);
 
         retranslateUi(MainWindow);
@@ -261,6 +269,8 @@ public:
         action13->setText(QCoreApplication::translate("MainWindow", "\347\253\213\344\275\223", nullptr));
         action23->setText(QCoreApplication::translate("MainWindow", "\347\253\213\344\275\223", nullptr));
         actionRanklist->setText(QCoreApplication::translate("MainWindow", "Ranklist", nullptr));
+        action14->setText(QCoreApplication::translate("MainWindow", "\351\231\220\345\210\266", nullptr));
+        action24->setText(QCoreApplication::translate("MainWindow", "\351\231\220\345\210\266", nullptr));
         mazeSizeLabel1->setText(QCoreApplication::translate("MainWindow", "\350\257\267\350\276\223\345\205\245\350\277\267\345\256\253\345\244\247\345\260\217\357\274\232", nullptr));
         mazeSizeLabel2->setText(QCoreApplication::translate("MainWindow", "\346\263\250\346\204\217\357\274\232\345\245\207\346\225\260\357\274\214\345\260\217\344\272\216xxx", nullptr));
         mazeSize8->setText(QCoreApplication::translate("MainWindow", "8", nullptr));
